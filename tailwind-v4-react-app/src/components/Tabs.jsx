@@ -3,6 +3,7 @@ import { useState } from 'react';
 const tabsData = [
   { id: 'generated', label: 'Generated Invoices', count: 3 },
   { id: 'reports', label: 'Reports', count: 2 },
+
   // Add more tabs as needed
 ];
 
@@ -11,8 +12,8 @@ export default function Tabs() {
 
   return (
     <div className="bg-white">
-      <nav className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex border-b border-gray-200">
+      <nav className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-200">
+        <div className="flex ">
           {tabsData.map((tab) => (
             <button
               key={tab.id}
