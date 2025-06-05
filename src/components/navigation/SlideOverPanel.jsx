@@ -44,7 +44,7 @@ export default function SlideOverPanel({ open, setOpen }) {
                   <div className="flex h-full flex-col overflow-y-scroll bg-SG-bg-content py-6 shadow-xl">
                     <div className="px-4 sm:px-6 pt-10">
                       <DialogTitle className="text-base font-semibold leading-6 text-SG-text-primary">
-                        Navigation
+                        Safeguard Global
                       </DialogTitle>
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
@@ -59,7 +59,7 @@ export default function SlideOverPanel({ open, setOpen }) {
                                     className={classNames(
                                       item.current
                                         ? 'bg-SG-bg-active text-SG-buttons-cta-primary'
-                                        : 'text-SG-text-muted hover:bg-SG-brand-neutral hover:text-SG-buttons-cta-primary',
+                                        : 'text-SG-text-muted hover:bg-SG-bg-content-secondary hover:text-SG-buttons-cta-primary',
                                       'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
                                     )}
                                   >
