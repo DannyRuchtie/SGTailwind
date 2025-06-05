@@ -52,7 +52,7 @@ WorkerListItem.propTypes = {
 
 export default function Sidebar() {
   return (
-    <aside className="bg-white rounded-lg flex flex-col max-h-[calc(100vh-12rem)]">
+    <aside className="bg-white rounded-lg flex flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
       <div className="px-6 py-4 border-b border-gray-100">
         <SearchInput 
           placeholder="Search worker..." 
