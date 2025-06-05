@@ -26,8 +26,8 @@
   --color-SG-brand-sub-cyan: #99ffff;
   --color-SG-brand-sub-teal: #017b92;
   --color-SG-brand-sub-indigo: #154680;
-  --color-SG-buttons-cta-primary: #563F8E;
-  --color-SG-buttons-cta-primary-hover: #411B69;
+  --color-SG-buttons-cta-primary: #742C84 ;  /* #742C84  */
+  --color-SG-buttons-cta-primary-hover: #742C84;
   --color-SG-buttons-cta-secondary: #ffffff;
   --color-SG-buttons-cta-secondary-hover: #eff9fc;
   --color-SG-state-success: #2f7f54;
@@ -53,7 +53,7 @@
   --color-SG-slate-2: #d9dbe9;
   --color-SG-slate-1: #f3f4f6;
   --color-SG-green-100: #70969d;
-  --color-SG-bg-active: #F5F2FF;
+  --color-SG-bg-active: #742C84;
   --color-SG-bg-secondary-active: rgba(1, 123, 146, 0.2);
   --color-custom-test-red: #ff0000;
 }

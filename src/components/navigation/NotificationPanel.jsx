@@ -17,7 +17,7 @@ export default function NotificationPanel({ isOpen, setIsOpen }) {
           leaveFrom="translate-x-0"
           leaveTo="translate-x-full"
         >
-          <DialogPanel className="pointer-events-auto fixed inset-y-0 right-0 flex h-full w-screen max-w-md flex-col overflow-y-scroll bg-white py-6 shadow-xl  border-l border-SG-stroke">
+          <DialogPanel className="pointer-events-auto fixed inset-y-0 right-0 flex h-full w-screen max-w-md flex-col overflow-y-scroll bg-white py-6 shadow-xl  border-l border-t border-SG-stroke">
             <div className="px-4 sm:px-6">
               <div className="flex items-start justify-between">
                 <DialogTitle className="text-lg font-semibold text-SG-text-primary">Notifications</DialogTitle>

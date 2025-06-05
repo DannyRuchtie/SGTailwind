@@ -28,7 +28,7 @@ function WorkerListItem({ name, company, country, isSelected, onClick }) {
     <div 
       onClick={onClick}
       className={`px-6 py-3 border-b border-gray-100 cursor-pointer hover:bg-SG-bg-content-secondary transition-colors ${
-        isSelected ? 'bg-SG-bg-content-secondary border-l-4 border-l-SG-brand-amethyst pl-5' : ''
+        isSelected ? 'bg-SG-bg-content-secondary border-l-4 border-l-SG-bg-active pl-5' : ''
       }`}
     >
       <div className="flex items-center gap-3">

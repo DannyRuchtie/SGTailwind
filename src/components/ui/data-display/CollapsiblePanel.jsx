@@ -11,16 +11,16 @@ export default function CollapsiblePanel({
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
-    <div className={`bg-SG-slate-1 rounded-md overflow-hidden ${className}`}>
+    <div className={`bg-SG-slate-1 ${className}  rounded-md rounded-b-md overflow-hidden `}>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between px-3 py-2.5 hover:bg-gray-100/50 transition-colors"
+        className="w-full flex items-center justify-between px-3 py-2.5 hover:bg-gray-100/50 transition-colors overflow-hidden"
       >
-        <span className="text-sm font-medium text-gray-900">{title}</span>
+        <span className="text-sm font-medium text-gray-900 overflow-hidden">{title}</span>
         {isExpanded ? (
-          <ChevronUpIcon className="h-4 w-4 text-gray-500" />
+          <ChevronUpIcon className="h-4 w-4 text-gray-500  overflow-hidden" />
         ) : (
-          <ChevronDownIcon className="h-4 w-4 text-gray-500" />
+          <ChevronDownIcon className="h-4 w-4 text-gray-500 overflow-hidden" />
         )}
       </button>
       

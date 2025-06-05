@@ -53,9 +53,7 @@ export default function WorkerDetails({ worker }) {
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold text-gray-900">{worker.name}</h1>
-            <span className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
-              {worker.id}
-            </span>
+        
           </div>
           <p className="text-sm text-gray-500 mt-1">{worker.company}</p>
         </div>

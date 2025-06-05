@@ -19,7 +19,7 @@ export default function SlideOverPanel({ open, setOpen }) {
       <Dialog className="relative z-50" onClose={setOpen}>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-ful border-r border-SG-stroke">
+            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-ful border-r border-t border-SG-stroke">
               <TransitionChild
                 as={Fragment}
                 enter="transform transition ease-in-out duration-300 sm:duration-400"

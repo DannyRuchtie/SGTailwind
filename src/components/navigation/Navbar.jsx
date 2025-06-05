@@ -28,7 +28,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
       <Disclosure as="nav" className="bg-white shadow-sm">
         {({ open }) => (
           <>
-            <div className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-SG-stroke">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-t border-SG-stroke">
               <div className="flex h-16 justify-between">
                 <div className="flex">
                   <div className="flex items-center mr-4">
