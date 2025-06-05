@@ -1,1 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Custom Font Sizes */
+  --text-sg-sm: 14px;
+  --text-sg-base: 16px;
+  --text-sg-lg: 20px;
+  --text-sg-xl: 24px;
+  --text-sg-2xl: 32px;
+  --text-sg-3xl: 40px;
+
+  /* Custom Line Heights */
+  --leading-sg-sm: 24px;
+  --leading-sg-base: 32px;
+  --leading-sg-lg: 40px;
+  --leading-sg-xl: 56px;
+
+  --color-SG-brand-amethyst: #392f75;
+  --color-SG-brand-teal: #004552;
+  --color-SG-brand-indigo: #17294a;
+  --color-SG-brand-sub-cyan: #99ffff;
+  --color-SG-brand-sub-teal: #017b92;
+  --color-SG-brand-sub-indigo: #154680;
+  --color-SG-buttons-cta-primary: #742c84;
+  --color-SG-buttons-cta-primary-hover: #570a68;
+  --color-SG-buttons-cta-secondary: #ffffff;
+  --color-SG-buttons-cta-secondary-hover: #eff9fc;
+  --color-SG-state-success: #2f7f54;
+  --color-SG-state-success-bg: #e4fff7;
+  --color-SG-state-error: #f65c5e;
+  --color-SG-state-error-bg: #ffe4e5;
+  --color-SG-state-warning: #ffb545;
+  --color-SG-state-warning-bg: #fff0c8;
+  --color-SG-brand-neutral: #eff9fc;
+  --color-SG-bg-base: #eff0f6;
+  --color-SG-stroke: #f1f2f5;
+  --color-SG-stroke-hover: #dee2e3;
+  --color-SG-stroke-active: #742c84;
+  --color-SG-bg-content: #ffffff;
+  --color-SG-bg-content-secondary: #f9fafb;
+  --color-SG-text-primary: #4e4b66;
+  --color-SG-text-placeholder: #6e7191;
+  --color-SG-text-muted: #93919c;
+  --color-SG-text-white: #ffffff;
+  --color-SG-slate-5: #6e7191;
+  --color-SG-slate-4: #cdd8de;
+  --color-SG-slate-3: #d1d5db;
+  --color-SG-slate-2: #d9dbe9;
+  --color-SG-slate-1: #f3f4f6;
+  --color-SG-green-100: #70969d;
+  --color-SG-bg-active: #d9ccdf;
+  --color-SG-bg-secondary-active: rgba(1, 123, 146, 0.2);
+  --color-custom-test-red: #ff0000;
+}
+
+@layer base {
+  h1 {
+    font-size: var(--text-sg-3xl);
+    line-height: var(--leading-sg-xl);
+  }
+  h2 {
+    font-size: var(--text-sg-2xl);
+    line-height: var(--leading-sg-lg);
+  }
+  h3 {
+    font-size: var(--text-sg-xl);
+    line-height: var(--leading-sg-base);
+  }
+  h4 {
+    font-size: var(--text-sg-lg);
+    line-height: var(--leading-sg-sm);
+  }
+}
