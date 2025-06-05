@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/16/solid';
 
 export default function Tabs({ tabs, activeTab, setActiveTab }) {
   return (
-    <div className="bg-white shadow-sm">
+    <div className="bg-white ">
       <div className="sm:hidden px-4 pt-3 pb-2">
         <div className="relative">
           <select
