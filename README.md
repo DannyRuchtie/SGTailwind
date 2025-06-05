@@ -17,8 +17,9 @@ Currently, the prototype includes components such as:
 - Custom theme setup (colors, fonts, typography) using Tailwind CSS v4.
 
 
-## Demo
+## CodeSandbox + Demo
 https://codesandbox.io/p/github/DannyRuchtie/SGTailwind/draft/nifty-galois
+https://sgt-ailwind.vercel.app
 
 
 ## Screenshot
