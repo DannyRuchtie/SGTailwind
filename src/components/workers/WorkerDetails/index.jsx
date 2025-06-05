@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { ChevronRightIcon } from '@heroicons/react/24/outline';
-import DetailPanel from '../../ui/details/DetailPanel';
+import { PencilIcon } from '@heroicons/react/24/outline';
+import WorkerDetailsSection from './WorkerDetailsSection';
 
-export default function WorkerDetails({ worker, onInfoClick }) {
+export default function WorkerDetails({ worker }) {
   if (!worker) {
     return (
       <div className="text-center text-gray-500 mt-8">
@@ -11,45 +11,66 @@ export default function WorkerDetails({ worker, onInfoClick }) {
     );
   }
 
-  const mobileInfoButton = onInfoClick && (
-    <button
-      onClick={onInfoClick}
-      className="flex items-center gap-2 text-SG-text-primary hover:text-SG-text-muted transition-colors md:hidden"
-    >
-      <span>More Info</span>
-      <ChevronRightIcon className="h-5 w-5" />
-    </button>
-  );
+  const sections = [
+    {
+      title: 'General Info',
+      items: [
+        { label: 'Worker full name', value: worker.name },
+        { label: 'Nationality', value: 'Canadian' },
+        { label: 'Citizenship', value: 'Canadian' },
+        { label: 'Gender', value: 'Prefer not to say' },
+      ]
+    },
+    {
+      title: 'Contact',
+      items: [
+        { label: 'Email', value: 'anika.calzoni@maplegate.com' },
+        { label: 'Phone', value: '+1 (555) 123-4567' },
+        { label: 'Address', value: '123 Maple Street, Toronto, ON' },
+      ]
+    },
+    {
+      title: 'Location',
+      items: [
+        { label: 'Country', value: worker.country },
+        { label: 'City', value: 'Toronto' },
+        { label: 'Time Zone', value: 'EST (UTC-5)' },
+      ]
+    },
+    {
+      title: 'Beneficiaries',
+      items: [
+        { label: 'Primary', value: 'John Calzoni (Spouse)' },
+        { label: 'Secondary', value: 'Sarah Calzoni (Child)' },
+      ]
+    }
+  ];
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4">
+      {/* Header */}
+      <div className="flex items-center justify-between pb-4 mb-2">
         <div>
-          <h1 className="text-2xl font-semibold text-SG-text-primary">{worker.name}</h1>
-          <p className="text-SG-text-muted">{worker.company}</p>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-semibold text-gray-900">{worker.name}</h1>
+            <span className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
+              {worker.id}
+            </span>
+          </div>
+          <p className="text-sm text-gray-500 mt-1">{worker.company}</p>
         </div>
-        {mobileInfoButton}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <DetailPanel
-          title="Contact Information"
-          className="h-fit"
-        >
-          <div className="space-y-2 text-sm">
-            <p className="text-SG-text-muted">ID: {worker.id}</p>
-            <p className="text-SG-text-muted">Country: {worker.country}</p>
-          </div>
-        </DetailPanel>
-
-        <DetailPanel
-          title="Company Details"
-          className="h-fit"
-        >
-          <div className="space-y-2 text-sm">
-            <p className="text-SG-text-muted">Company: {worker.company}</p>
-          </div>
-        </DetailPanel>
+      {/* Sections */}
+      <div className="space-y-2">
+        {sections.map((section, index) => (
+          <WorkerDetailsSection
+            key={index}
+            title={section.title}
+            items={section.items}
+            defaultExpanded={index === 0}
+          />
+        ))}
       </div>
     </div>
   );
@@ -62,5 +83,4 @@ WorkerDetails.propTypes = {
     company: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
   }),
-  onInfoClick: PropTypes.func,
 }; 

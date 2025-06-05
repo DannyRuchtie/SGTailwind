@@ -13,7 +13,7 @@ export default function ListFooterCTA({
     `}>
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-center gap-2 bg-SG-buttons-cta-primary text-white px-4 py-2 rounded-md hover:bg-SG-buttons-cta-hover transition-colors"
+        className="w-full flex items-center justify-center gap-2 bg-SG-buttons-cta-primary text-white px-2 py-2 rounded-md hover:bg-SG-buttons-cta-hover transition-colors"
       >
         {icon && (
           <span className="w-5 h-5">
