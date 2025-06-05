@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Navbar from './Navbar';
-import Tabs from './Tabs';
+import Navbar from '../navigation/Navbar.jsx';
+import Tabs from '../navigation/Tabs.jsx';
 import Sidebar from './Sidebar';
 import MainDisplay from './MainDisplay';
 import InfoPanel from './InfoPanel';
-import SlideOverPanel from './SlideOverPanel';
-import NotificationPanel from './NotificationPanel';
+import SlideOverPanel from '../navigation/SlideOverPanel.jsx';
+import NotificationPanel from '../navigation/NotificationPanel.jsx';
 
 const TABS_CONFIG = [
   { id: 'focus-view', label: 'Focus View' },

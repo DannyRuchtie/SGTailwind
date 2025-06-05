@@ -1,8 +1,8 @@
-import SearchInput from './SearchInput';
+import SearchInput from '../ui/SearchInput.jsx';
 
 export default function Sidebar() {
   return (
-    <aside className="bg-white p-4 h-full rounded-lg shadow-sm">
+    <aside className="bg-white p-6 h-full rounded-lg">
       <div className="mb-4">
         <SearchInput 
           placeholder="Search worker..." 

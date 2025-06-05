@@ -8,7 +8,7 @@ export default function SearchInput({
   onFilterClick // Optional: if you want to handle filter clicks
 }) {
   return (
-    <div className="relative flex items-center rounded-md bg-SG-background-canvas-muted p-0 border border-SG-stroke focus-within:ring-1 focus-within:ring-SG-buttons-cta-primary focus-within:border-SG-buttons-cta-primary">
+    <div className="relative flex items-center rounded-md stroke-SG-stroke bg-SG-bg-base p-0 border border-SG-stroke focus-within:ring-1 focus-within:ring-SG-buttons-cta-primary focus-within:border-SG-buttons-cta-primary">
       <div className="pl-3 pr-2 py-2 pointer-events-none">
         <MagnifyingGlassIcon className="h-5 w-5 text-SG-text-secondary" aria-hidden="true" />
       </div>
@@ -19,7 +19,7 @@ export default function SearchInput({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="block w-full border-0 bg-transparent py-2 text-SG-text-primary placeholder:text-SG-text-placeholder text-sm focus:ring-0"
+        className="block w-full border-0 bg-SG-bg-base py-2 text-SG-text-primary placeholder:text-SG-text-placeholder text-sm focus:ring-0 "
       />
       {onFilterClick && (
         <button 
