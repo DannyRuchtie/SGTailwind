@@ -54,8 +54,10 @@ export default function MainDisplay({ selectedWorker, onInfoClick }) {
   if (!selectedWorker) {
     return (
       <main className="bg-white p-4 md:p-6 md:rounded-lg max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
-        <div className="h-full flex items-center justify-center text-SG-text-muted">
-          Select a worker to view details
+        <div className="h-full flex items-center justify-center text-SG-text-muted flex-col">
+            
+       <h3 className="text-lg font-semibold text-SG-text-primary mb-3">Detail View</h3>
+        <p className="text-sm text-SG-text-muted">This is the main column.</p>
         </div>
       </main>
     );

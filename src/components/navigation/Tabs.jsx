@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
 
-export default function Tabs({ tabs, activeTab, setActiveTab }) {
+export default function Tabs({ tabs, activeTab }) {
   return (
-    <div className="bg-white ">
+    <div className="bg-white">
       <div className="sm:hidden px-4 pt-3 pb-2">
         <div className="relative">
           <select
@@ -12,7 +13,12 @@ export default function Tabs({ tabs, activeTab, setActiveTab }) {
             aria-label="Select a tab"
             className="block w-full appearance-none rounded-md border-SG-stroke bg-white py-2.5 pl-3 pr-10 text-SG-text-primary text-sm focus:border-SG-buttons-cta-primary focus:outline-none focus:ring-1 focus:ring-SG-buttons-cta-primary"
             value={activeTab}
-            onChange={(e) => setActiveTab(e.target.value)}
+            onChange={(e) => {
+              const tab = tabs.find(t => t.id === e.target.value);
+              if (tab) {
+                window.location.href = tab.path;
+              }
+            }}
           >
             {tabs.map((tab) => (
               <option key={tab.id} value={tab.id}>
@@ -33,9 +39,9 @@ export default function Tabs({ tabs, activeTab, setActiveTab }) {
         <nav className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-SG-stroke">
           <div className="flex">
             {tabs.map((tab) => (
-              <button
+              <Link
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                to={tab.path}
                 className={`relative py-4 px-1 mr-6 text-sm font-medium whitespace-nowrap
                   ${
                     activeTab === tab.id
@@ -50,7 +56,7 @@ export default function Tabs({ tabs, activeTab, setActiveTab }) {
                     aria-hidden="true"
                   />
                 )}
-              </button>
+              </Link>
             ))}
           </div>
         </nav>
@@ -60,10 +66,12 @@ export default function Tabs({ tabs, activeTab, setActiveTab }) {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-  })).isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   activeTab: PropTypes.string.isRequired,
-  setActiveTab: PropTypes.func.isRequired,
 }; 

@@ -1,9 +1,15 @@
-import Layout from './components/layout/Layout.jsx';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/layout/Layout';
 
-function App() {
+export default function App() {
   return (
-    <Layout />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />} />
+        <Route path="/focus" element={<Layout />} />
+        <Route path="/expanded" element={<Layout />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;

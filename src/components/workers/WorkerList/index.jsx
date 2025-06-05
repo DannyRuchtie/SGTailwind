@@ -1,7 +1,9 @@
-import SearchInput from '../ui/SearchInput.jsx';
 import PropTypes from 'prop-types';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import ListFooterCTA from '../ui/list/ListFooterCTA';
+import SearchInput from '../../ui/search/SearchInput';
+import List from '../../ui/list/List';
+import ListItem from '../../ui/list/ListItem';
+import ListFooterCTA from '../../ui/list/ListFooterCTA';
 
 // Sample data - in a real app this would come from props or an API
 const workers = [
@@ -23,72 +25,54 @@ const workers = [
   { id: 16, name: 'Nina Patel', company: 'Verdant Innovations', country: 'IN' }
 ];
 
-function WorkerListItem({ name, company, country, isSelected, onClick }) {
-  return (
-    <div 
-      onClick={onClick}
-      className={`px-6 py-3 border-b border-gray-100 cursor-pointer hover:bg-SG-bg-content-secondary transition-colors ${
-        isSelected ? 'bg-SG-bg-content-secondary border-l-4 border-l-SG-brand-amethyst pl-5' : ''
-      }`}
-    >
-      <div className="flex items-center gap-3">
+export default function WorkerList({ onWorkerSelect, selectedWorkerId }) {
+  const renderWorkerItem = (worker) => (
+    <ListItem
+      key={worker.id}
+      leading={
         <img 
-          src={`https://flagcdn.com/24x18/${country.toLowerCase()}.png`}
-          alt={`${country} flag`}
+          src={`https://flagcdn.com/24x18/${worker.country.toLowerCase()}.png`}
+          alt={`${worker.country} flag`}
           className="w-6 h-4 object-cover rounded-xs"
         />
-        <div>
-          <span className="text-gray-900 text-sm">{name}</span>
-          <p className="text-gray-500 text-xs mt-0.5">{company}</p>
-        </div>
-      </div>
-    </div>
+      }
+      title={worker.name}
+      subtitle={worker.company}
+      isSelected={worker.id === selectedWorkerId}
+      onClick={() => onWorkerSelect(worker)}
+    />
   );
-}
 
-WorkerListItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  isSelected: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
-};
-
-export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
   const handleAddWorker = () => {
     // This would be implemented later
     console.log('Add worker clicked');
   };
 
   return (
-    <aside className="bg-white md:rounded-lg flex flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
+    <div className="flex flex-col h-full">
       <div className="px-6 py-4 border-b border-gray-100">
         <SearchInput 
           placeholder="Search worker..." 
         />
       </div>
       
-      <div className="flex-1 overflow-y-auto min-h-0">
-        {workers.map((worker) => (
-          <WorkerListItem
-            key={worker.id}
-            {...worker}
-            isSelected={worker.id === selectedWorkerId}
-            onClick={() => onWorkerSelect(worker)}
-          />
-        ))}
+      <div className="overflow-y-auto" style={{ height: 'calc(100vh - 13rem)' }}>
+        {workers.map((worker) => renderWorkerItem(worker))}
       </div>
 
-      <ListFooterCTA
-        icon={<PlusIcon />}
-        label="Add Worker"
-        onClick={handleAddWorker}
-      />
-    </aside>
+      <div className="border-t border-gray-100 bg-white">
+        <ListFooterCTA
+          icon={<PlusIcon />}
+          label="Add Worker"
+          onClick={handleAddWorker}
+          className="border-t-0"
+        />
+      </div>
+    </div>
   );
 }
 
-Sidebar.propTypes = {
+WorkerList.propTypes = {
   onWorkerSelect: PropTypes.func.isRequired,
   selectedWorkerId: PropTypes.number,
 }; 

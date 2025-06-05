@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import Navbar from '../navigation/Navbar.jsx';
 import Tabs from '../navigation/Tabs.jsx';
@@ -9,9 +10,9 @@ import SlideOverPanel from '../navigation/SlideOverPanel.jsx';
 import NotificationPanel from '../navigation/NotificationPanel.jsx';
 
 const TABS_CONFIG = [
-  { id: 'focus-view', label: 'Focus View' },
-  { id: 'standard-view', label: 'Standard View' },
-  { id: 'expanded-view', label: 'Expanded View' },
+  { id: 'focus-view', label: 'Focus View', path: '/focus' },
+  { id: 'standard-view', label: 'Standard View', path: '/' },
+  { id: 'expanded-view', label: 'Expanded View', path: '/expanded' },
 ];
 
 const MOBILE_VIEWS = {
@@ -21,12 +22,16 @@ const MOBILE_VIEWS = {
 };
 
 export default function Layout() {
-  const [activeTab, setActiveTab] = useState(TABS_CONFIG[1].id);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
   const [isNotificationPanelOpen, setIsNotificationPanelOpen] = useState(false);
   const [selectedWorker, setSelectedWorker] = useState(null);
   const [mobileView, setMobileView] = useState(MOBILE_VIEWS.SIDEBAR);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // Determine active tab based on current path
+  const activeTab = TABS_CONFIG.find(tab => tab.path === location.pathname)?.id || 'standard-view';
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,6 +41,13 @@ export default function Layout() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const handleTabChange = (tabId) => {
+    const tab = TABS_CONFIG.find(t => t.id === tabId);
+    if (tab) {
+      navigate(tab.path);
+    }
+  };
 
   const handleWorkerSelect = (worker) => {
     setSelectedWorker(worker);
@@ -124,6 +136,7 @@ export default function Layout() {
       );
     }
 
+    // Expanded view
     return (
       <>
         <div className="col-span-12 md:col-span-3 h-full">
@@ -151,7 +164,11 @@ export default function Layout() {
         setIsSlideOverOpen={setIsSlideOverOpen} 
         setIsNotificationPanelOpen={setIsNotificationPanelOpen}
       />
-      <Tabs tabs={TABS_CONFIG} activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Tabs 
+        tabs={TABS_CONFIG} 
+        activeTab={activeTab} 
+        setActiveTab={handleTabChange} 
+      />
       
       <SlideOverPanel open={isSlideOverOpen} setOpen={setIsSlideOverOpen} />
       <NotificationPanel isOpen={isNotificationPanelOpen} setIsOpen={setIsNotificationPanelOpen} />
