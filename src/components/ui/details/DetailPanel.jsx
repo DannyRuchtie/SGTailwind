@@ -8,7 +8,7 @@ export default function DetailPanel({
   className = '',
 }) {
   return (
-    <div className={`bg-gray-50 p-4 rounded-lg ${className}`}>
+    <div className={`bg-SG-bg-base50 p-4 rounded-lg ${className}`}>
       {(title || subtitle) && (
         <div className="mb-4">
           {title && (

@@ -13,7 +13,7 @@ export default function ListItem({
     <div 
       onClick={onClick}
       className={`
-        px-6 py-3 border-b border-gray-100 cursor-pointer 
+        px-6 py-3 border-b border-SG-stroke cursor-pointer 
         hover:bg-SG-bg-content-secondary transition-colors
         ${isSelected ? 'bg-SG-bg-content-secondary border-l-4 border-l-SG-brand-amethyst pl-5' : ''}
         ${className}
@@ -26,7 +26,7 @@ export default function ListItem({
           </div>
         )}
         <div className="flex-grow min-w-0">
-          <div className="text-gray-900 text-sm truncate">{title}</div>
+          <div className="text-SG-text-primary text-sm truncate">{title}</div>
           {subtitle && (
             <p className="text-gray-500 text-xs mt-0.5 truncate">{subtitle}</p>
           )}

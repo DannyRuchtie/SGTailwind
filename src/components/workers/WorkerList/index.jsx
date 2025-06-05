@@ -50,7 +50,7 @@ export default function WorkerList({ onWorkerSelect, selectedWorkerId }) {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="px-6 py-4 border-b border-gray-100">
+      <div className="px-6 py-4 border-b border-SG-stroke">
         <SearchInput 
           placeholder="Search worker..." 
         />
@@ -60,7 +60,7 @@ export default function WorkerList({ onWorkerSelect, selectedWorkerId }) {
         {workers.map((worker) => renderWorkerItem(worker))}
       </div>
 
-      <div className="border-t border-gray-100 bg-white">
+      <div className="border-t border-SG-stroke bg-SG-bg-content">
         <ListFooterCTA
           icon={<PlusIcon />}
           label="Add Worker"

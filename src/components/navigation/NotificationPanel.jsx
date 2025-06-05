@@ -17,7 +17,7 @@ export default function NotificationPanel({ isOpen, setIsOpen }) {
           leaveFrom="translate-x-0"
           leaveTo="translate-x-full"
         >
-          <DialogPanel className="pointer-events-auto fixed inset-y-0 right-0 flex h-full w-screen max-w-md flex-col overflow-y-scroll bg-white py-6 shadow-xl  border-l border-t border-SG-stroke">
+          <DialogPanel className="pointer-events-auto fixed inset-y-0 right-0 flex h-full w-screen max-w-md flex-col overflow-y-scroll bg-SG-bg-content py-6 shadow-xl  border-l border-t border-SG-stroke">
             <div className="px-4 sm:px-6">
               <div className="flex items-start justify-between">
                 <DialogTitle className="text-lg font-semibold text-SG-text-primary">Notifications</DialogTitle>
@@ -25,7 +25,7 @@ export default function NotificationPanel({ isOpen, setIsOpen }) {
                   <button
                     type="button"
                     onClick={() => setIsOpen(false)}
-                    className="relative rounded-md bg-white text-SG-text-muted hover:text-SG-text-primary focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2 focus:outline-none"
+                    className="relative rounded-md bg-SG-bg-content text-SG-text-muted hover:text-SG-text-primary focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2 focus:outline-none"
                   >
                     <span className="absolute -inset-2.5" />
                     <span className="sr-only">Close panel</span>

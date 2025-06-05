@@ -1,14 +1,23 @@
 import PropTypes from 'prop-types';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { 
+  SunIcon, 
+  MoonIcon,
+  UserCircleIcon,
+  Cog6ToothIcon,
+  ArrowRightOnRectangleIcon 
+} from '@heroicons/react/24/solid'
 import CompanyLogo from '../ui/CompanyLogo';
 import { useState } from 'react';
 import CommandPalette from '../ui/CommandPalette';
+import { useTheme } from '../../context/ThemeContext';
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { type: 'theme' },
+  { name: 'Your Profile', href: '#', icon: UserCircleIcon },
+  { name: 'Settings', href: '#', icon: Cog6ToothIcon },
+  { name: 'Sign out', href: '#', icon: ArrowRightOnRectangleIcon },
 ]
 
 function classNames(...classes) {
@@ -17,6 +26,45 @@ function classNames(...classes) {
 
 export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
+
+  const renderMenuItem = (item, focus) => {
+    if (item.type === 'theme') {
+      return (
+        <button
+          onClick={toggleTheme}
+          className={classNames(
+            focus ? 'bg-SG-bg-base100 dark:bg-SG-bg-base700' : '',
+            'flex w-full items-center px-4 py-2 text-sm text-SG-text-primary'
+          )}
+        >
+          {isDark ? (
+            <>
+              <SunIcon className="mr-3 h-5 w-5 text-SG-text-muted" aria-hidden="true" />
+              Light Mode
+            </>
+          ) : (
+            <>
+              <MoonIcon className="mr-3 h-5 w-5 text-SG-text-muted" aria-hidden="true" />
+              Dark Mode
+            </>
+          )}
+        </button>
+      );
+    }
+    return (
+      <a
+        href={item.href}
+        className={classNames(
+          focus ? 'bg-SG-bg-base100 dark:bg-SG-bg-base700' : '',
+          'flex items-center px-4 py-2 text-sm text-SG-text-primary'
+        )}
+      >
+        <item.icon className="mr-3 h-5 w-5 text-SG-text-muted" aria-hidden="true" />
+        {item.name}
+      </a>
+    );
+  };
 
   return (
     <>
@@ -25,10 +73,10 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
         onClose={() => setIsSearchOpen(false)}
       />
       
-      <Disclosure as="nav" className="bg-white shadow-sm">
+      <Disclosure as="nav" className="bg-SG-bg-content shadow-sm dark:bg-SG-bg-base800 transition-colors duration-200">
         {({ open }) => (
           <>
-            <div className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-t border-SG-stroke">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-t border-SG-stroke dark:border-gray-700">
               <div className="flex h-16 justify-between">
                 <div className="flex">
                   <div className="flex items-center mr-4">
@@ -58,7 +106,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                   <button
                     type="button"
                     onClick={() => setIsSearchOpen(true)}
-                    className="relative rounded-full bg-white p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
+                    className="relative rounded-full bg-SG-bg-content p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open search</span>
@@ -74,7 +122,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                         console.error('NAVBAR_ERROR: setIsNotificationPanelOpen is not a function when trying to open notification panel');
                       }
                     }}
-                    className="relative ml-3 rounded-full bg-white p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
+                    className="relative ml-3 rounded-full bg-SG-bg-content p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
@@ -84,7 +132,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>
-                      <MenuButton className="relative flex rounded-full bg-white text-sm focus:ring-offset-2">
+                      <MenuButton className="relative flex rounded-full bg-SG-bg-content text-sm focus:ring-offset-2 dark:bg-SG-bg-base800">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only">Open user menu</span>
                         <img
@@ -96,21 +144,11 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                     </div>
                     <MenuItems
                       transition
-                      className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-75 data-[leave]:ease-in border border-SG-stroke"
+                      className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-SG-bg-content py-1 shadow-lg transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-75 data-[leave]:ease-in border border-SG-stroke dark:bg-SG-bg-base800 dark:border-gray-700"
                     >
                       {userNavigation.map((item) => (
-                        <MenuItem key={item.name}>
-                          {({ focus }) => (
-                            <a
-                              href={item.href}
-                              className={classNames(
-                                focus ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-SG-text-primary'
-                              )}
-                            >
-                              {item.name}
-                            </a>
-                          )}
+                        <MenuItem key={item.name || item.type}>
+                          {({ focus }) => renderMenuItem(item, focus)}
                         </MenuItem>
                       ))}
                     </MenuItems>
@@ -118,7 +156,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                 </div>
                 <div className="-mr-2 flex items-center sm:hidden">
                   {/* Mobile menu button */}
-                  <DisclosureButton className="group relative inline-flex items-center justify-center rounded-full bg-white p-1 text-gray-400 hover:bg-SG-bg-active hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-brand-indigo focus:ring-offset-2">
+                  <DisclosureButton className="group relative inline-flex items-center justify-center rounded-full bg-SG-bg-content p-1 text-gray-400 hover:bg-SG-bg-active hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-brand-indigo focus:ring-offset-2">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open user menu</span>
                     <img
@@ -142,7 +180,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                     <button
                       type="button"
                       onClick={() => setIsSearchOpen(true)}
-                      className="relative rounded-full bg-white p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
+                      className="relative rounded-full bg-SG-bg-content p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
                     >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Search</span>
@@ -157,7 +195,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                           console.error('NAVBAR_ERROR: setIsNotificationPanelOpen is not a function when trying to open notification panel from mobile');
                         }
                       }}
-                      className="relative rounded-full bg-white p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
+                      className="relative rounded-full bg-SG-bg-content p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
                     >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">View notifications</span>
@@ -171,7 +209,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                       key={item.name}
                       as="a"
                       href={item.href}
-                      className="block px-4 py-2 text-base font-medium text-SG-text-muted hover:bg-gray-100 hover:text-SG-text-primary"
+                      className="block px-4 py-2 text-base font-medium text-SG-text-muted hover:bg-SG-bg-base100 hover:text-SG-text-primary"
                     >
                       {item.name}
                     </DisclosureButton>

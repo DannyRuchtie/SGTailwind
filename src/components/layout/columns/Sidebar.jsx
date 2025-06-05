@@ -3,7 +3,7 @@ import WorkerList from '../../workers/WorkerList';
 
 export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
   return (
-    <aside className="flex flex-col h-full bg-white md:rounded-lg">
+    <aside className="flex flex-col h-full bg-SG-bg-content md:rounded-lg">
       <WorkerList 
         onWorkerSelect={onWorkerSelect}
         selectedWorkerId={selectedWorkerId}

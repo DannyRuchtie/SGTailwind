@@ -13,8 +13,8 @@ export default function InfoPanel() {
   };
 
   return (
-    <aside className="bg-white p-4 h-full rounded-lg flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
-      <h3 className="text-lg font-semibold text-gray-900 mb-3">Information Panel</h3>
+    <aside className="bg-SG-bg-content p-4 h-full rounded-lg flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
+      <h3 className="text-lg font-semibold text-SG-text-primary mb-3">Information Panel</h3>
       <p className="text-sm text-SG-text-muted mb-6">This is the third column, the information panel.</p>
       
       <div className="space-y-4">
@@ -23,13 +23,13 @@ export default function InfoPanel() {
           <div className="space-y-3">
             <button
               onClick={() => setShowModal(true)}
-              className="w-full inline-flex justify-center items-center px-4 py-2 border border-SG-stroke text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
+              className="w-full inline-flex justify-center items-center px-4 py-2 border border-SG-stroke text-sm font-medium rounded-md text-gray-700 bg-SG-bg-content hover:bg-SG-bg-base50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
             >
               Open Modal
             </button>
             <button
               onClick={() => setShowNotification(true)}
-              className="w-full inline-flex justify-center items-center px-4 py-2 border border-SG-stroke text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
+              className="w-full inline-flex justify-center items-center px-4 py-2 border border-SG-stroke text-sm font-medium rounded-md text-gray-700 bg-SG-bg-content hover:bg-SG-bg-base50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
             >
               Show Notification
             </button>

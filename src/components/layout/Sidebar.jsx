@@ -27,7 +27,7 @@ function WorkerListItem({ name, company, country, isSelected, onClick }) {
   return (
     <div 
       onClick={onClick}
-      className={`px-6 py-3 border-b border-gray-100 cursor-pointer hover:bg-SG-bg-content-secondary transition-colors ${
+      className={`px-6 py-3 border-b border-SG-stroke cursor-pointer hover:bg-SG-bg-content-secondary transition-colors ${
         isSelected ? 'bg-SG-bg-content-secondary border-l-4 border-l-SG-buttons-cta-primary pl-5' : ''
       }`}
     >
@@ -38,7 +38,7 @@ function WorkerListItem({ name, company, country, isSelected, onClick }) {
           className="w-6 h-4 object-cover rounded-xs"
         />
         <div>
-          <span className="text-gray-900 text-sm">{name}</span>
+          <span className="text-SG-text-primary text-sm">{name}</span>
           <p className="text-gray-500 text-xs mt-0.5">{company}</p>
         </div>
       </div>
@@ -61,8 +61,8 @@ export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
   };
 
   return (
-    <aside className="bg-white md:rounded-lg flex flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
-      <div className="px-6 py-4 border-b border-gray-100">
+    <aside className="bg-SG-bg-content md:rounded-lg flex flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
+      <div className="px-6 py-4 border-b border-SG-stroke">
         <SearchInput 
           placeholder="Search worker..." 
         />

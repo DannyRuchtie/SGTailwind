@@ -8,9 +8,9 @@ export default function List({
   listClassName = '',
 }) {
   return (
-    <div className={`bg-white md:rounded-lg flex flex-col ${className}`}>
+    <div className={`bg-SG-bg-content md:rounded-lg flex flex-col ${className}`}>
       {header && (
-        <div className="px-6 py-4 border-b border-gray-100">
+        <div className="px-6 py-4 border-b border-SG-stroke">
           {header}
         </div>
       )}

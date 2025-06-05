@@ -14,9 +14,9 @@ export default function CollapsiblePanel({
     <div className={`bg-SG-slate-1 ${className}  rounded-md rounded-b-md overflow-hidden `}>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between px-3 py-2.5 hover:bg-gray-100/50 transition-colors overflow-hidden"
+        className="w-full flex items-center justify-between px-3 py-2.5 hover:bg-SG-bg-base100/50 transition-colors overflow-hidden"
       >
-        <span className="text-sm font-medium text-gray-900 overflow-hidden">{title}</span>
+        <span className="text-sm font-medium text-SG-text-primary overflow-hidden">{title}</span>
         {isExpanded ? (
           <ChevronUpIcon className="h-4 w-4 text-gray-500  overflow-hidden" />
         ) : (
@@ -25,7 +25,7 @@ export default function CollapsiblePanel({
       </button>
       
       {isExpanded && (
-        <div className="bg-white divide-y divide-gray-100">
+        <div className="bg-SG-bg-content divide-y divide-gray-100">
           {children}
         </div>
       )}

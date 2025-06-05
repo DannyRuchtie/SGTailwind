@@ -4,14 +4,14 @@ import { ChevronDownIcon } from '@heroicons/react/16/solid';
 
 export default function Tabs({ tabs, activeTab }) {
   return (
-    <div className="bg-white">
+    <div className="bg-SG-bg-content">
       <div className="sm:hidden px-4 pt-3 pb-2">
         <div className="relative">
           <select
             id="tabs-select-mobile"
             name="tabs-select-mobile"
             aria-label="Select a tab"
-            className="block w-full appearance-none rounded-md border-SG-stroke bg-white py-2.5 pl-3 pr-10 text-SG-text-primary text-sm focus:border-SG-buttons-cta-primary focus:outline-none focus:ring-1 focus:ring-SG-buttons-cta-primary"
+            className="block w-full appearance-none rounded-md border-SG-stroke bg-SG-bg-content py-2.5 pl-3 pr-10 text-SG-text-primary text-sm focus:border-SG-buttons-cta-primary focus:outline-none focus:ring-1 focus:ring-SG-buttons-cta-primary"
             value={activeTab}
             onChange={(e) => {
               const tab = tabs.find(t => t.id === e.target.value);

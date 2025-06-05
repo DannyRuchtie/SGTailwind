@@ -20,7 +20,7 @@ export default function Alert({ show, setShow, title, message, actions }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="pointer-events-auto w-full max-w-xl overflow-hidden rounded-lg bg-white shadow-lg">
+          <div className="pointer-events-auto w-full max-w-xl overflow-hidden rounded-lg bg-SG-bg-content shadow-lg">
             <div className="border-l-4 border-SG-state-warning p-4">
               <div className="flex">
                 <div className="flex-shrink-0">
@@ -36,7 +36,7 @@ export default function Alert({ show, setShow, title, message, actions }) {
                       <div className="-mx-2 -my-1.5 flex">
                         <button
                           type="button"
-                          className="rounded-md bg-white px-2 py-1.5 text-sm font-medium text-SG-state-warning hover:bg-SG-state-warning/10 focus:outline-none focus:ring-2 focus:ring-SG-state-warning focus:ring-offset-2"
+                          className="rounded-md bg-SG-bg-content px-2 py-1.5 text-sm font-medium text-SG-state-warning hover:bg-SG-state-warning/10 focus:outline-none focus:ring-2 focus:ring-SG-state-warning focus:ring-offset-2"
                         >
                           View status
                         </button>
@@ -48,7 +48,7 @@ export default function Alert({ show, setShow, title, message, actions }) {
                   <div className="-mx-1.5 -my-1.5">
                     <button
                       type="button"
-                      className="inline-flex rounded-md p-1.5 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
+                      className="inline-flex rounded-md p-1.5 text-gray-400 hover:bg-SG-bg-base100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
                       onClick={() => setShow(false)}
                     >
                       <span className="sr-only">Dismiss</span>

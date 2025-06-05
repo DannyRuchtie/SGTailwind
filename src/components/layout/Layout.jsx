@@ -159,7 +159,7 @@ export default function Layout() {
   };
 
   return (
-    <div className="min-h-screen bg-SG-bg-base flex flex-col">
+    <div className="min-h-screen bg-SG-bg-base100 dark:bg-SG-bg-base900 transition-colors duration-200">
       <Navbar 
         setIsSlideOverOpen={setIsSlideOverOpen} 
         setIsNotificationPanelOpen={setIsNotificationPanelOpen}
