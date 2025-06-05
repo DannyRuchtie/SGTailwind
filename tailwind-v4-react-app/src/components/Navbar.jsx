@@ -14,7 +14,9 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen }) {
-  console.log('Navbar rendering. setIsNotificationPanelOpen:', setIsNotificationPanelOpen); // Diagnostic log
+  // Simplified diagnostic log in Navbar.jsx
+  console.log("NAVBAR_DEBUG: typeof setIsSlideOverOpen:", typeof setIsSlideOverOpen);
+  console.log("NAVBAR_DEBUG: typeof setIsNotificationPanelOpen:", typeof setIsNotificationPanelOpen);
 
   return (
     <Disclosure as="nav" className="bg-white shadow-sm">
@@ -26,7 +28,13 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                 <div className="flex items-center mr-4">
                   <button
                     type="button"
-                    onClick={() => setIsSlideOverOpen(true)}
+                    onClick={() => {
+                      if (typeof setIsSlideOverOpen === 'function') {
+                        setIsSlideOverOpen(true);
+                      } else {
+                        console.error('NAVBAR_ERROR: setIsSlideOverOpen is not a function when trying to open main menu');
+                      }
+                    }}
                     className="p-2 rounded-md text-SG-text-muted hover:text-SG-text-primary hover:bg-SG-brand-neutral focus:outline-none focus:ring-2 focus:ring-inset focus:ring-SG-buttons-cta-primary"
                   >
                     <span className="sr-only">Open sidebar</span>
@@ -43,7 +51,13 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
               <div className="hidden sm:ml-6 sm:flex sm:items-center">
                 <button
                   type="button"
-                  onClick={() => setIsNotificationPanelOpen(true)}
+                  onClick={() => {
+                    if (typeof setIsNotificationPanelOpen === 'function') {
+                      setIsNotificationPanelOpen(true);
+                    } else {
+                      console.error('NAVBAR_ERROR: setIsNotificationPanelOpen is not a function when trying to open notification panel');
+                    }
+                  }}
                   className="relative rounded-full bg-white p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary focus:ring-offset-2"
                 >
                   <span className="absolute -inset-1.5" />
@@ -115,7 +129,13 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                 </div>
                 <button
                   type="button"
-                  onClick={() => setIsNotificationPanelOpen(true)}
+                  onClick={() => {
+                    if (typeof setIsNotificationPanelOpen === 'function') {
+                      setIsNotificationPanelOpen(true);
+                    } else {
+                      console.error('NAVBAR_ERROR: setIsNotificationPanelOpen is not a function when trying to open notification panel from mobile');
+                    }
+                  }}
                   className="relative ml-auto shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-brand-indigo focus:ring-offset-2"
                 >
                   <span className="absolute -inset-1.5" />

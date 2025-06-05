@@ -10,10 +10,10 @@ export default function NotificationPanel({ isOpen, setIsOpen }) {
       <Dialog onClose={() => setIsOpen(false)} className="relative z-50">
         {/* No separate backdrop overlay for this one, it slides over */}
         <TransitionChild
-          enter="transform transition ease-in-out duration-500 sm:duration-700"
+          enter="transform transition ease-in-out duration-300 sm:duration-400"
           enterFrom="translate-x-full"
           enterTo="translate-x-0"
-          leave="transform transition ease-in-out duration-500 sm:duration-700"
+          leave="transform transition ease-in-out duration-300 sm:duration-400"
           leaveFrom="translate-x-0"
           leaveTo="translate-x-full"
         >

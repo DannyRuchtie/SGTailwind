@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import MainDisplay from './MainDisplay';
 import InfoPanel from './InfoPanel';
 import SlideOverPanel from './SlideOverPanel';
+import NotificationPanel from './NotificationPanel';
 
 const TABS_CONFIG = [
   { id: 'focus-view', label: 'Focus View' },
@@ -15,13 +16,21 @@ const TABS_CONFIG = [
 export default function Layout() {
   const [activeTab, setActiveTab] = useState(TABS_CONFIG[1].id);
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
+  const [isNotificationPanelOpen, setIsNotificationPanelOpen] = useState(false);
+
+  console.error("LAYOUT_DEBUG: typeof setIsSlideOverOpen:", typeof setIsSlideOverOpen);
+  console.error("LAYOUT_DEBUG: typeof setIsNotificationPanelOpen:", typeof setIsNotificationPanelOpen);
 
   return (
     <div className="min-h-screen bg-SG-bg-base flex flex-col">
-      <Navbar setIsSlideOverOpen={setIsSlideOverOpen} />
+      <Navbar 
+        setIsSlideOverOpen={setIsSlideOverOpen} 
+        setIsNotificationPanelOpen={setIsNotificationPanelOpen}
+      />
       <Tabs tabs={TABS_CONFIG} activeTab={activeTab} setActiveTab={setActiveTab} />
       
       <SlideOverPanel open={isSlideOverOpen} setOpen={setIsSlideOverOpen} />
+      <NotificationPanel isOpen={isNotificationPanelOpen} setIsOpen={setIsNotificationPanelOpen} />
 
       <div className="flex-grow container max-w-screen-2xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-grow">

@@ -20,13 +20,13 @@ export default function SlideOverPanel({ open, setOpen }) {
       <Dialog className="relative z-50" onClose={setOpen}>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-full">
+            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-ful border-r border-SG-stroke">
               <TransitionChild
                 as={Fragment}
-                enter="transform transition ease-in-out duration-500 sm:duration-700"
+                enter="transform transition ease-in-out duration-300 sm:duration-400"
                 enterFrom="-translate-x-full"
                 enterTo="translate-x-0"
-                leave="transform transition ease-in-out duration-500 sm:duration-700"
+                leave="transform transition ease-in-out duration-300 sm:duration-400"
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >

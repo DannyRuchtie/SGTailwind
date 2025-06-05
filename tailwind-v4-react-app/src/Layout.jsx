@@ -20,6 +20,10 @@ export default function Layout() {
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
   const [isNotificationPanelOpen, setIsNotificationPanelOpen] = useState(false);
 
+  // Simplified diagnostic log in Layout.jsx
+  console.error("LAYOUT_DEBUG: typeof setIsSlideOverOpen:", typeof setIsSlideOverOpen);
+  console.error("LAYOUT_DEBUG: typeof setIsNotificationPanelOpen:", typeof setIsNotificationPanelOpen);
+
   const renderMainContent = () => {
     switch (activeTab) {
       case 'focus':
@@ -64,7 +68,7 @@ export default function Layout() {
     <div className="min-h-screen bg-SG-background-canvas flex flex-col">
       <Navbar 
         setIsSlideOverOpen={setIsSlideOverOpen} 
-        setIsNotificationPanelOpen={setIsNotificationPanelOpen}
+        setIsNotificationPanelOpen={setIsNotificationPanelOpen} // Pass directly
       />
       <SlideOverPanel isOpen={isSlideOverOpen} setIsOpen={setIsSlideOverOpen} />
       <NotificationPanel isOpen={isNotificationPanelOpen} setIsOpen={setIsNotificationPanelOpen} />
