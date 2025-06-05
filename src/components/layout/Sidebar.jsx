@@ -2,6 +2,7 @@ import SearchInput from '../ui/SearchInput.jsx';
 import PropTypes from 'prop-types';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import ListFooterCTA from '../ui/list/ListFooterCTA';
+import { useState, useMemo } from 'react';
 
 // Sample data - in a real app this would come from props or an API
 const workers = [
@@ -55,9 +56,35 @@ WorkerListItem.propTypes = {
 };
 
 export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
+  const [searchQuery, setSearchQuery] = useState('');
+
   const handleAddWorker = () => {
     // This would be implemented later
     console.log('Add worker clicked');
+  };
+
+  // Filter workers based on search query
+  const filteredWorkers = useMemo(() => {
+    if (!searchQuery.trim()) return workers;
+
+    const query = searchQuery.toLowerCase();
+    return workers.filter(worker => 
+      worker.name.toLowerCase().includes(query) ||
+      worker.company.toLowerCase().includes(query) ||
+      worker.country.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
+
+  // Show no results message if no workers match the search
+  const renderNoResults = () => {
+    if (filteredWorkers.length === 0) {
+      return (
+        <div className="px-6 py-4 text-center">
+          <p className="text-SG-text-muted text-sm">No workers found matching "{searchQuery}"</p>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
@@ -65,11 +92,14 @@ export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
       <div className="px-6 py-4 border-b border-SG-stroke">
         <SearchInput 
           placeholder="Search worker..." 
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
       
       <div className="flex-1 overflow-y-auto min-h-0">
-        {workers.map((worker) => (
+        {renderNoResults()}
+        {filteredWorkers.map((worker) => (
           <WorkerListItem
             key={worker.id}
             {...worker}
