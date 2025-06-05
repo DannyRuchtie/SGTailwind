@@ -21,9 +21,10 @@ const workers = [
   { id: 16, name: 'Nina Patel', company: 'Verdant Innovations', country: 'IN' }
 ];
 
-function WorkerListItem({ name, company, country, isSelected }) {
+function WorkerListItem({ name, company, country, isSelected, onClick }) {
   return (
     <div 
+      onClick={onClick}
       className={`px-6 py-3 border-b border-gray-100 cursor-pointer hover:bg-SG-bg-content-secondary transition-colors ${
         isSelected ? 'bg-SG-bg-content-secondary border-l-4 border-l-SG-brand-amethyst pl-5' : ''
       }`}
@@ -48,11 +49,12 @@ WorkerListItem.propTypes = {
   company: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   isSelected: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
 };
 
-export default function Sidebar() {
+export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
   return (
-    <aside className="bg-white rounded-lg flex flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
+    <aside className="bg-white md:rounded-lg flex flex-col max-h-[calc(100vh-12rem)]">
       <div className="px-6 py-4 border-b border-gray-100">
         <SearchInput 
           placeholder="Search worker..." 
@@ -63,13 +65,17 @@ export default function Sidebar() {
         {workers.map((worker) => (
           <WorkerListItem
             key={worker.id}
-            name={worker.name}
-            company={worker.company}
-            country={worker.country}
-            isSelected={worker.id === 1}
+            {...worker}
+            isSelected={worker.id === selectedWorkerId}
+            onClick={() => onWorkerSelect(worker)}
           />
         ))}
       </div>
     </aside>
   );
-} 
+}
+
+Sidebar.propTypes = {
+  onWorkerSelect: PropTypes.func.isRequired,
+  selectedWorkerId: PropTypes.number,
+}; 
