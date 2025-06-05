@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Notification from '../ui/Notification';
 import Modal from '../ui/Modal';
+import Button from '../ui/Button';
 import { InformationCircleIcon } from '@heroicons/react/20/solid';
 
 export default function InfoPanel() {
@@ -18,21 +19,26 @@ export default function InfoPanel() {
       <p className="text-sm text-SG-text-muted mb-6">This is the third column, the information panel.</p>
       
       <div className="space-y-4">
-      
         <div>
           <div className="space-y-3">
-            <button
+            <Button
+              variant="secondary"
+              size="md"
+              icon={<InformationCircleIcon className="h-5 w-5" />}
               onClick={() => setShowModal(true)}
-              className="w-full inline-flex justify-center items-center px-4 py-2 border border-SG-stroke text-sm font-medium rounded-md text-gray-700 bg-SG-bg-content hover:bg-SG-bg-base50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
+              className="w-full"
             >
               Open Modal
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="primary"
+              size="md"
+              icon={<InformationCircleIcon className="h-5 w-5" />}
               onClick={() => setShowNotification(true)}
-              className="w-full inline-flex justify-center items-center px-4 py-2 border border-SG-stroke text-sm font-medium rounded-md text-gray-700 bg-SG-bg-content hover:bg-SG-bg-base50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-SG-buttons-cta-primary"
+              className="w-full"
             >
               Show Notification
-            </button>
+            </Button>
           </div>
         </div>
       </div>

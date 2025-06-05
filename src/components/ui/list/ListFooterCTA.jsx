@@ -1,34 +1,24 @@
 import PropTypes from 'prop-types';
+import Button from '../Button';
 
-export default function ListFooterCTA({ 
-  icon,
-  label,
-  onClick,
-  className = '',
-}) {
+export default function ListFooterCTA({ icon: Icon, label, onClick }) {
   return (
-    <div className={`
-      sticky bottom-0 p-3
-      ${className}
-    `}>
-      <button
+    <div className="p-4 border-t border-SG-stroke">
+      <Button
+        variant="primary"
+        size="md"
+        icon={Icon}
         onClick={onClick}
-        className="w-full flex items-center justify-center gap-2 bg-SG-buttons-cta-primary text-white px-2 py-2 rounded-md hover:bg-SG-buttons-cta-hover transition-colors"
+        className="w-full"
       >
-        {icon && (
-          <span className="w-5 h-5">
-            {icon}
-          </span>
-        )}
-        <span className="font-medium">{label}</span>
-      </button>
+        {label}
+      </Button>
     </div>
   );
 }
 
 ListFooterCTA.propTypes = {
-  icon: PropTypes.node,
+  icon: PropTypes.elementType,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  className: PropTypes.string,
 }; 

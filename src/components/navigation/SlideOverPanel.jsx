@@ -6,18 +6,17 @@ import {
   BeakerIcon,
 } from '@heroicons/react/24/outline'
 import PropTypes from 'prop-types';
+import { useLocation, Link } from 'react-router-dom';
 
 const navigation = [
   { 
     name: 'Dashboard', 
     href: '/dashboard', 
-    current: true,
     icon: Squares2X2Icon
   },
   { 
     name: 'UI Demo', 
     href: '/', 
-    current: false,
     icon: BeakerIcon
   },
 ]
@@ -27,12 +26,22 @@ function classNames(...classes) {
 }
 
 export default function SlideOverPanel({ open, setOpen }) {
+  const location = useLocation();
+
+  // Function to check if a nav item is current
+  const isCurrentRoute = (href) => {
+    if (href === '/') {
+      return location.pathname === '/' || ['/focus', '/expanded'].includes(location.pathname);
+    }
+    return location.pathname === href;
+  };
+
   return (
     <Transition show={open} as={Fragment}>
       <Dialog className="relative z-50" onClose={setOpen}>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-ful border-r border-t border-SG-stroke">
+            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-full border-r border-t border-SG-stroke">
               <TransitionChild
                 as={Fragment}
                 enter="transform transition ease-in-out duration-300 sm:duration-400"
@@ -67,30 +76,34 @@ export default function SlideOverPanel({ open, setOpen }) {
                         <ul role="list" className="flex flex-1 flex-col gap-y-7">
                           <li>
                             <ul role="list" className="-mx-2 space-y-1">
-                              {navigation.map((item) => (
-                                <li key={item.name}>
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      item.current
-                                        ? 'bg-SG-bg-active text-SG-buttons-cta-primary'
-                                        : 'text-SG-text-muted hover:bg-SG-bg-content-secondary hover:text-SG-buttons-cta-primary',
-                                      'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
-                                    )}
-                                  >
-                                    <item.icon 
+                              {navigation.map((item) => {
+                                const isCurrent = isCurrentRoute(item.href);
+                                return (
+                                  <li key={item.name}>
+                                    <Link
+                                      to={item.href}
+                                      onClick={() => setOpen(false)}
                                       className={classNames(
-                                        item.current 
-                                          ? 'text-SG-buttons-cta-primary' 
-                                          : 'text-SG-text-muted group-hover:text-SG-buttons-cta-primary',
-                                        'h-6 w-6 shrink-0'
-                                      )} 
-                                      aria-hidden="true" 
-                                    />
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
+                                        isCurrent
+                                          ? 'bg-SG-bg-active text-SG-buttons-cta-primary'
+                                          : 'text-SG-text-muted hover:bg-SG-bg-content-secondary hover:text-SG-buttons-cta-primary',
+                                        'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
+                                      )}
+                                    >
+                                      <item.icon 
+                                        className={classNames(
+                                          isCurrent 
+                                            ? 'text-SG-buttons-cta-primary' 
+                                            : 'text-SG-text-muted group-hover:text-SG-buttons-cta-primary',
+                                          'h-6 w-6 shrink-0'
+                                        )} 
+                                        aria-hidden="true" 
+                                      />
+                                      {item.name}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
                             </ul>
                           </li>
                           {/* Additional navigation sections can go here */}

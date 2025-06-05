@@ -8,11 +8,13 @@ import MainDisplay from './MainDisplay';
 import InfoPanel from './InfoPanel';
 import SlideOverPanel from '../navigation/SlideOverPanel.jsx';
 import NotificationPanel from '../navigation/NotificationPanel.jsx';
+import UIDemo from '../pages/UIDemo';
+import PropTypes from 'prop-types';
 
 const TABS_CONFIG = [
-  { id: 'focus-view', label: 'Focus View', path: '/focus' },
-  { id: 'standard-view', label: 'Standard View', path: '/' },
-  { id: 'expanded-view', label: 'Expanded View', path: '/expanded' },
+  { id: 'focus', label: 'Focus View', path: '/focus' },
+  { id: 'standard', label: 'Standard View', path: '/' },
+  { id: 'expanded', label: 'Expanded View', path: '/expanded' },
 ];
 
 const MOBILE_VIEWS = {
@@ -31,7 +33,7 @@ export default function Layout() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   // Determine active tab based on current path
-  const activeTab = TABS_CONFIG.find(tab => tab.path === location.pathname)?.id || 'standard-view';
+  const activeTab = location.pathname === '/' ? 'standard' : location.pathname.slice(1);
 
   useEffect(() => {
     const handleResize = () => {
@@ -105,24 +107,14 @@ export default function Layout() {
     }
   };
 
-  const renderDesktopContent = () => {
+  const renderContent = () => {
     if (location.pathname === '/dashboard') {
       return <Outlet />;
     }
-    
-    return (
-      <>
-        <div className="col-span-3">
-          <Sidebar onWorkerSelect={handleWorkerSelect} />
-        </div>
-        <div className="col-span-6">
-          <MainDisplay selectedWorker={selectedWorker} />
-        </div>
-        <div className="col-span-3">
-          <InfoPanel selectedWorker={selectedWorker} />
-        </div>
-      </>
-    );
+
+    // Extract view from path
+    const view = location.pathname === '/' ? 'standard' : location.pathname.slice(1);
+    return <UIDemo view={view} />;
   };
 
   return (
@@ -144,9 +136,13 @@ export default function Layout() {
 
       <div className="flex-grow container max-w-screen-2xl mx-auto md:p-4 lg:p-8 flex flex-col">
         <div className="grid grid-cols-12 md:gap-6 flex-grow">
-          {isMobile ? renderMobileContent() : renderDesktopContent()}
+          {isMobile ? renderMobileContent() : renderContent()}
         </div>
       </div>
     </div>
   );
-} 
+}
+
+Layout.propTypes = {
+  view: PropTypes.oneOf(['focus', 'standard', 'expanded']),
+}; 
