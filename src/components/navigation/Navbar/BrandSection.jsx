@@ -19,7 +19,7 @@ export default function BrandSection({ onMenuClick }) {
         <CompanyLogo className="h-8 w-auto" />
         <span className="ml-3 text-SG-text-primary">Safeguard Global</span>
         <span className="text-SG-stroke ml-4">|</span>
-        <span className="ml-4 text-SG-text-primary">UI Demo</span>
+        <span className="ml-4 text-SG-text-primary">Workforce</span>
       </div>
     </div>
   );

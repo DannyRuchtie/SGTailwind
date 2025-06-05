@@ -15,7 +15,7 @@ const navigation = [
     icon: Squares2X2Icon
   },
   { 
-    name: 'UI Demo', 
+    name: 'Workforce', 
     href: '/', 
     icon: BeakerIcon
   },

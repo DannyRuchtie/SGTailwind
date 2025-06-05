@@ -35,9 +35,9 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
       case '/dashboard':
         return 'Dashboard';
       case '/':
-        return 'UI Demo';
+        return 'Workforce';
       default:
-        return 'UI Demo';
+        return 'Workforce';
     }
   };
 
