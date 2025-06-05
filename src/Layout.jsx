@@ -10,9 +10,9 @@ import SlideOverPanel from './SlideOverPanel';
 import NotificationPanel from './NotificationPanel';
 
 const TABS_CONFIG = [
-  { id: 'focus', name: 'Focus View' },
-  { id: 'standard', name: 'Standard View' },
   { id: 'expanded', name: 'Expanded View' },
+  { id: 'standard', name: 'Standard View' },
+  { id: 'focus', name: 'Focus View' },
 ];
 
 export default function Layout() {
