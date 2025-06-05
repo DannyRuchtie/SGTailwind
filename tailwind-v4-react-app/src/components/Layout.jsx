@@ -4,6 +4,7 @@ import Tabs from './Tabs';
 import Sidebar from './Sidebar';
 import MainDisplay from './MainDisplay';
 import InfoPanel from './InfoPanel';
+import SlideOverPanel from './SlideOverPanel';
 
 const TABS_CONFIG = [
   { id: 'focus-view', label: 'Focus View' },
@@ -13,12 +14,15 @@ const TABS_CONFIG = [
 
 export default function Layout() {
   const [activeTab, setActiveTab] = useState(TABS_CONFIG[1].id);
+  const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-SG-bg-base flex flex-col">
-      <Navbar />
+      <Navbar setIsSlideOverOpen={setIsSlideOverOpen} />
       <Tabs tabs={TABS_CONFIG} activeTab={activeTab} setActiveTab={setActiveTab} />
       
+      <SlideOverPanel open={isSlideOverOpen} setOpen={setIsSlideOverOpen} />
+
       <div className="flex-grow container max-w-screen-2xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col">
         <div className="grid grid-cols-12 gap-6 flex-grow">
           {activeTab === 'focus-view' && (
