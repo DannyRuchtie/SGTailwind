@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Notification from '../ui/Notification';
 import Modal from '../ui/Modal';
-import PropTypes from 'prop-types';
+import { InformationCircleIcon } from '@heroicons/react/20/solid';
 
 export default function InfoPanel() {
   const [showNotification, setShowNotification] = useState(false);
@@ -18,8 +18,8 @@ export default function InfoPanel() {
       <p className="text-sm text-SG-text-muted mb-6">This is the third column, the information panel.</p>
       
       <div className="space-y-4">
+      
         <div>
-
           <div className="space-y-3">
             <button
               onClick={() => setShowModal(true)}
@@ -54,8 +54,4 @@ export default function InfoPanel() {
       />
     </aside>
   );
-}
-
-InfoPanel.propTypes = {
-  // Define any props if needed in the future
-}; 
+} 
