@@ -101,12 +101,15 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                 </Menu>
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
-                {/* Mobile menu button */}
-                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-brand-indigo focus:ring-offset-2">
+                {/* Mobile menu button replaced with User Avatar */}
+                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-full bg-white p-1 text-gray-400 hover:bg-gray-100 hover:text-SG-text-muted focus:outline-none focus:ring-2 focus:ring-SG-brand-indigo focus:ring-offset-2">
                   <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  <Bars3Icon aria-hidden="true" className="block h-6 w-6 data-[open]:hidden group-data-[open]:hidden" />
-                  <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 data-[open]:block group-data-[open]:block" />
+                  <span className="sr-only">Open user menu</span>
+                  <img
+                    alt=""
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    className="h-8 w-8 rounded-full"
+                  />
                 </DisclosureButton>
               </div>
             </div>
@@ -116,14 +119,8 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
             {/* Mobile navigation links removed */}
             <div className="border-t border-gray-200 pt-4 pb-3">
               <div className="flex items-center px-4">
-                <div className="shrink-0">
-                  <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    className="h-10 w-10 rounded-full"
-                  />
-                </div>
-                <div className="ml-3">
+                {/* Avatar removed from here */}
+                <div className="ml-0"> {/* Adjusted margin since avatar is removed */}
                   <div className="text-base font-medium text-SG-text-primary">Tom Cook</div>
                   <div className="text-sm font-medium text-SG-text-muted">tom@example.com</div>
                 </div>
