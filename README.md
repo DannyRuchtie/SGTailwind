@@ -16,6 +16,11 @@ Currently, the prototype includes components such as:
 - Basic column layouts for content display.
 - Custom theme setup (colors, fonts, typography) using Tailwind CSS v4.
 
+
+## Demo
+https://codesandbox.io/p/github/DannyRuchtie/SGTailwind/draft/nifty-galois
+
+
 ## Screenshot
 
 ![Application Screenshot](./screenshot.png)
