@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/24/solid'
 import CompanyLogo from '../ui/CompanyLogo';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import CommandPalette from '../ui/CommandPalette';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -27,6 +28,18 @@ function classNames(...classes) {
 export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  const location = useLocation();
+
+  const getPageTitle = () => {
+    switch (location.pathname) {
+      case '/dashboard':
+        return 'Dashboard';
+      case '/':
+        return 'UI Demo';
+      default:
+        return 'UI Demo';
+    }
+  };
 
   const renderMenuItem = (item, focus) => {
     if (item.type === 'theme') {
@@ -73,7 +86,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
         onClose={() => setIsSearchOpen(false)}
       />
       
-      <Disclosure as="nav" className="bg-SG-bg-content shadow-sm dark:bg-SG-bg-base800 transition-colors duration-200">
+      <Disclosure as="nav" className="bg-SG-bg-content border-b border-t border-SG-stroke dark:bg-SG-bg-base800 transition-colors duration-200">
         {({ open }) => (
           <>
             <div className="mx-auto px-4 sm:px-6 lg:px-8 border-b border-t border-SG-stroke dark:border-gray-700">
@@ -99,7 +112,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                     <CompanyLogo className="h-8 w-auto" />
                     <span className="ml-3 text-SG-text-primary">Safeguard Global</span>
                     <span className="text-SG-stroke ml-4">|</span>
-                    <span className="ml-4 text-SG-text-primary">UI Demo</span>
+                    <span className="ml-4 text-SG-text-primary">{getPageTitle()}</span>
                   </div>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import Navbar from '../navigation/Navbar.jsx';
 import Tabs from '../navigation/Tabs.jsx';
@@ -82,28 +82,22 @@ export default function Layout() {
     switch (mobileView) {
       case MOBILE_VIEWS.SIDEBAR:
         return (
-          <div className="col-span-12 h-full">
-            <Sidebar 
-              onWorkerSelect={handleWorkerSelect}
-              selectedWorkerId={selectedWorker?.id}
-            />
+          <div className="col-span-12">
+            <Sidebar onWorkerSelect={handleWorkerSelect} />
           </div>
         );
       case MOBILE_VIEWS.MAIN:
         return (
-          <div className="col-span-12 h-full">
+          <div className="col-span-12">
             {renderBackButton()}
-            <MainDisplay 
-              selectedWorker={selectedWorker} 
-              onInfoClick={activeTab === 'expanded-view' ? () => setMobileView(MOBILE_VIEWS.INFO) : undefined}
-            />
+            <MainDisplay selectedWorker={selectedWorker} onInfoClick={() => setMobileView(MOBILE_VIEWS.INFO)} />
           </div>
         );
       case MOBILE_VIEWS.INFO:
         return (
-          <div className="col-span-12 h-full">
+          <div className="col-span-12">
             {renderBackButton()}
-            <InfoPanel />
+            <InfoPanel selectedWorker={selectedWorker} />
           </div>
         );
       default:
@@ -112,47 +106,20 @@ export default function Layout() {
   };
 
   const renderDesktopContent = () => {
-    if (activeTab === 'focus-view') {
-      return (
-        <div className="col-span-12 h-full">
-          <MainDisplay selectedWorker={selectedWorker} />
-        </div>
-      );
+    if (location.pathname === '/dashboard') {
+      return <Outlet />;
     }
-
-    if (activeTab === 'standard-view') {
-      return (
-        <>
-          <div className="col-span-12 md:col-span-3 h-full">
-            <Sidebar 
-              onWorkerSelect={handleWorkerSelect}
-              selectedWorkerId={selectedWorker?.id}
-            />
-          </div>
-          <div className="col-span-12 md:col-span-9 h-full">
-            <MainDisplay selectedWorker={selectedWorker} />
-          </div>
-        </>
-      );
-    }
-
-    // Expanded view
+    
     return (
       <>
-        <div className="col-span-12 md:col-span-3 h-full">
-          <Sidebar 
-            onWorkerSelect={handleWorkerSelect}
-            selectedWorkerId={selectedWorker?.id}
-          />
+        <div className="col-span-3">
+          <Sidebar onWorkerSelect={handleWorkerSelect} />
         </div>
-        <div className="col-span-12 md:col-span-6 h-full">
-          <MainDisplay 
-            selectedWorker={selectedWorker}
-            onInfoClick={isMobile ? () => setMobileView(MOBILE_VIEWS.INFO) : undefined}
-          />
+        <div className="col-span-6">
+          <MainDisplay selectedWorker={selectedWorker} />
         </div>
-        <div className="col-span-12 md:col-span-3 h-full">
-          <InfoPanel />
+        <div className="col-span-3">
+          <InfoPanel selectedWorker={selectedWorker} />
         </div>
       </>
     );
@@ -164,11 +131,13 @@ export default function Layout() {
         setIsSlideOverOpen={setIsSlideOverOpen} 
         setIsNotificationPanelOpen={setIsNotificationPanelOpen}
       />
-      <Tabs 
-        tabs={TABS_CONFIG} 
-        activeTab={activeTab} 
-        setActiveTab={handleTabChange} 
-      />
+      {location.pathname !== '/dashboard' && (
+        <Tabs 
+          tabs={TABS_CONFIG} 
+          activeTab={activeTab} 
+          setActiveTab={handleTabChange} 
+        />
+      )}
       
       <SlideOverPanel open={isSlideOverOpen} setOpen={setIsSlideOverOpen} />
       <NotificationPanel isOpen={isNotificationPanelOpen} setIsOpen={setIsNotificationPanelOpen} />
