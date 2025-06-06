@@ -110,7 +110,6 @@ export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
       </div>
 
       <ListFooterCTA
-        icon={<PlusIcon />}
         label="Add Worker"
         onClick={handleAddWorker}
       />

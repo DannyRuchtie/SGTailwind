@@ -24,16 +24,14 @@ export default function InfoPanel() {
             <Button
               variant="secondary"
               size="md"
-              icon={<InformationCircleIcon className="h-5 w-5" />}
               onClick={() => setShowModal(true)}
               className="w-full"
             >
               Open Modal
             </Button>
             <Button
-              variant="primary"
+              variant="secondary"
               size="md"
-              icon={<InformationCircleIcon className="h-5 w-5" />}
               onClick={() => setShowNotification(true)}
               className="w-full"
             >
