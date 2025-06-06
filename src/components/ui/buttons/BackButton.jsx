@@ -5,7 +5,7 @@ export default function BackButton({ onClick, className = '' }) {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2 p-4 text-SG-text-primary hover:text-SG-text-muted transition-colors ${className}`}
+      className={`flex items-center gap-2 p-4  text-SG-text-primary hover:text-SG-text-muted transition-colors `}
     >
       <ChevronLeftIcon className="h-5 w-5" />
       <span >Back</span>
