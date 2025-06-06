@@ -20,13 +20,13 @@ Currently, the prototype includes components such as:
 ## CodeSandbox + Demo
 fork: https://codesandbox.io/p/github/DannyRuchtie/SGTailwind/draft/nifty-galois
 
-demo: https://sgt-ailwind.vercel.app
+demo: [https://sgt-ailwind.vercel.app](https://sgt-ailwind.vercel.app/workforce/3)
 
 
 ## Screenshot
 
 ![Application Screenshot](./screenshot-1.png)
-![Application Screenshot Darkmode ](./screenshot-2.png)
+
 
 ## Tech Stack
 
