@@ -18,8 +18,9 @@ Currently, the prototype includes components such as:
 
 
 ## CodeSandbox + Demo
-https://codesandbox.io/p/github/DannyRuchtie/SGTailwind/draft/nifty-galois
-https://sgt-ailwind.vercel.app
+fork: https://codesandbox.io/p/github/DannyRuchtie/SGTailwind/draft/nifty-galois
+
+demo: https://sgt-ailwind.vercel.app
 
 
 ## Screenshot
