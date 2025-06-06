@@ -17,12 +17,12 @@ const iconSizeClasses = {
 };
 
 const baseClasses = {
-  primary: 'font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2',
-  secondary: 'font-semibold shadow-xs',
+  primary: 'font-semibold -visible:outline-2 focus-visible:outline-offset-2',
+  secondary: 'font-semibold ',
   tertiary: 'font-semibold',
-  danger: 'font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2',
-  success: 'font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2',
-  warning: 'font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2',
+  danger: 'font-semibold  focus-visible:outline-2 focus-visible:outline-offset-2',
+  success: 'font-semibold  focus-visible:outline-2 focus-visible:outline-offset-2',
+  warning: 'font-semibold  focus-visible:outline-2 focus-visible:outline-offset-2',
   ghost: 'font-semibold',
   link: 'font-semibold underline-offset-4 hover:underline',
 };
