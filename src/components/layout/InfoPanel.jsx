@@ -15,8 +15,8 @@ export default function InfoPanel() {
 
   return (
     <aside className="bg-SG-bg-content p-4 h-full rounded-lg flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
-      <h3 className="text-lg font-semibold text-SG-text-primary mb-3">Information Panel</h3>
-      <p className="text-sm text-SG-text-muted mb-6">This is the third column, the information panel.</p>
+      <h3 className="text-lg font-semibold text-SG-text-primary mb-3">Trigger Actions</h3>
+      <p className="text-sm text-SG-text-muted mb-6">Trigger actions to show notifications or modals.</p>
       
       <div className="space-y-4">
         <div>
