@@ -11,7 +11,7 @@ export default function Tabs({ tabs, activeTab }) {
             id="tabs-select-mobile"
             name="tabs-select-mobile"
             aria-label="Select a tab"
-            className="block w-full appearance-none rounded-md border-SG-stroke bg-SG-bg-content py-2.5 pl-3 pr-10 text-SG-text-primary text-sm focus:border-SG-buttons-cta-primary focus:outline-none focus:ring-1 focus:ring-SG-buttons-cta-primary"
+            className="block w-full border  appearance-none rounded-md border-SG-stroke bg-SG-bg-content py-2.5 pl-3 pr-10 text-SG-text-primary text-sm focus:border-SG-buttons-cta-primary focus:outline-none focus:ring-1 focus:ring-SG-buttons-cta-primary"
             value={activeTab}
             onChange={(e) => {
               const tab = tabs.find(t => t.id === e.target.value);
