@@ -85,7 +85,7 @@ export default function SlideOverPanel({ open, setOpen }) {
                                       onClick={() => setOpen(false)}
                                       className={classNames(
                                         isCurrent
-                                          ? 'bg-SG-bg-active text-SG-buttons-cta-primary'
+                                          ? 'bg-SG-stroke-active/10 text-SG-buttons-cta-primary'
                                           : 'text-SG-text-muted hover:bg-SG-bg-content-secondary hover:text-SG-buttons-cta-primary',
                                         'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6'
                                       )}

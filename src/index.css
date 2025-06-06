@@ -31,8 +31,8 @@
   --color-SG-brand-neutral: #eff9fc;
 
   /* Button Colors */
-  --color-SG-buttons-cta-primary: #742C84;
-  --color-SG-buttons-cta-primary-hover: #742C84;
+  --color-SG-buttons-cta-primary: #563f8e; /* #6c257c */
+  --color-SG-buttons-cta-primary-hover: #483677;
   --color-SG-buttons-cta-secondary: #ffffff;
   --color-SG-buttons-cta-secondary-hover: #eff9fc;
 
@@ -85,8 +85,8 @@
   --color-SG-brand-neutral: #1a1a1a;
 
   /* Button Colors */
-  --color-SG-buttons-cta-primary: #8c33a0;
-  --color-SG-buttons-cta-primary-hover: #a33db8;
+  --color-SG-buttons-cta-primary: #563f8e; /* #6c257c */
+  --color-SG-buttons-cta-primary-hover: #483677;
   --color-SG-buttons-cta-secondary: #1a1a1a;
   --color-SG-buttons-cta-secondary-hover: #333333;
 
@@ -99,7 +99,7 @@
   --color-SG-state-warning-bg: #332600;
 
   /* Background Colors */
-  --color-SG-bg-base: #0d0d0d;
+  --color-SG-bg-base: #212121;
   --color-SG-bg-content: #1a1a1a;
   --color-SG-bg-content-secondary: #262626;
   --color-SG-bg-active: #331a39;
@@ -108,7 +108,7 @@
   /* Border Colors */
   --color-SG-stroke: #262626;
   --color-SG-stroke-hover: #404040;
-  --color-SG-stroke-active: #8c33a0;
+  --color-SG-stroke-active: #483677;
 
   /* Text Colors */
   --color-SG-text-primary: #e6e6e6;
@@ -121,7 +121,7 @@
   --color-SG-slate-4: #404040;
   --color-SG-slate-3: #333333;
   --color-SG-slate-2: #262626;
-  --color-SG-slate-1: #1a1a1a;
+  --color-SG-slate-1: #222222;
 
   /* Additional Colors */
   --color-SG-green-100: #00b377;

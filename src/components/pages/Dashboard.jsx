@@ -88,8 +88,8 @@ export default function Dashboard() {
                   className="relative overflow-hidden rounded-lg bg-SG-bg-content px-4 pb-12 pt-5  sm:px-6 sm:pt-6"
                 >
                   <dt>
-                    <div className="absolute rounded-md bg-SG-brand-amethyst/10 p-3">
-                      <stat.icon className="h-6 w-6 text-SG-brand-amethyst" aria-hidden="true" />
+                    <div className="absolute rounded-md bg-SG-buttons-cta-primary/10 p-3">
+                      <stat.icon className="h-6 w-6 text-SG-buttons-cta-primary" aria-hidden="true" />
                     </div>
                     <p className="ml-16 truncate text-sm font-medium text-SG-text-secondary">{stat.name}</p>
                   </dt>
@@ -97,7 +97,7 @@ export default function Dashboard() {
                     <p className="text-2xl font-semibold text-SG-text-primary">{stat.value}</p>
                     <p
                       className={classNames(
-                        stat.changeType === 'positive' ? 'text-green-600' : 'text-red-600',
+                        stat.changeType === 'positive' ? 'text-SG-state-success' : 'text-SG-state-error-bg',
                         'ml-2 flex items-baseline text-sm font-semibold'
                       )}
                     >

@@ -28,7 +28,7 @@ export default function Alert({ show, setShow, title, message, actions }) {
                 </div>
                 <div className="ml-3">
                   <h3 className="text-sm font-medium text-gray-800">{title}</h3>
-                  <div className="mt-2 text-sm text-gray-600">
+                  <div className="mt-2 text-sm text-SG-text-muted">
                     <p>{message}</p>
                   </div>
                   {actions && (
