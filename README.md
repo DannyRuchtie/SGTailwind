@@ -26,7 +26,7 @@ demo: https://sgt-ailwind.vercel.app
 ## Screenshot
 
 ![Application Screenshot](./screenshot-1.png)
-![Application Screenshot Darkmode ](./screenshot-2.png)
+
 
 ## Tech Stack
 
