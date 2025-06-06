@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Dashboard from './components/pages/Dashboard';
-import UIDemo from './components/pages/UIDemo';
+import Workforce from './components/pages/Workforce';
 import { ThemeProvider } from './context/ThemeContext';
 
 export default function App() {
@@ -10,10 +10,14 @@ export default function App() {
       <Router>
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<UIDemo view="standard" />} />
+            <Route index element={<Navigate to="/workforce" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="focus" element={<UIDemo view="focus" />} />
-            <Route path="expanded" element={<UIDemo view="expanded" />} />
+            <Route path="workforce" element={<Workforce view="standard" />} />
+            <Route path="workforce/:workerId" element={<Workforce view="standard" />} />
+            <Route path="workforce/focus" element={<Workforce view="focus" />} />
+            <Route path="workforce/focus/:workerId" element={<Workforce view="focus" />} />
+            <Route path="workforce/expanded" element={<Workforce view="expanded" />} />
+            <Route path="workforce/expanded/:workerId" element={<Workforce view="expanded" />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

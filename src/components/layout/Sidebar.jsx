@@ -4,26 +4,6 @@ import { PlusIcon } from '@heroicons/react/24/outline';
 import ListFooterCTA from '../ui/list/ListFooterCTA';
 import { useState, useMemo } from 'react';
 
-// Sample data - in a real app this would come from props or an API
-const workers = [
-  { id: 1, name: 'Anika Calzoni', company: 'Maple Gate', country: 'CA' },
-  { id: 2, name: 'Lincoln Vetrovs', company: 'Indium Tech', country: 'NL' },
-  { id: 3, name: 'Justin Ekstrom Bothman', company: 'Indium Tech', country: 'NL' },
-  { id: 4, name: 'Ann Rhiel Madsen', company: 'Verdant Innovations', country: 'US' },
-  { id: 5, name: 'Marcus Ekstrom Bothman', company: 'Nebula Nexus', country: 'GB' },
-  { id: 6, name: 'Charlie Dias', company: 'Brimstone & Co.', country: 'ZA' },
-  { id: 7, name: 'Craig Press', company: 'Brimstone & Co.', country: 'ZA' },
-  { id: 8, name: 'Kadin Botosh', company: 'Indium Tech', country: 'NL' },
-  { id: 9, name: 'Sofia Rodriguez', company: 'Maple Gate', country: 'MX' },
-  { id: 10, name: 'Lars Eriksson', company: 'Nebula Nexus', country: 'SE' },
-  { id: 11, name: 'Yuki Tanaka', company: 'Verdant Innovations', country: 'JP' },
-  { id: 12, name: 'Isabella Santos', company: 'Brimstone & Co.', country: 'BR' },
-  { id: 13, name: 'Alexander Schmidt', company: 'Indium Tech', country: 'DE' },
-  { id: 14, name: 'Emma O\'Connor', company: 'Maple Gate', country: 'IE' },
-  { id: 15, name: 'Lucas Kovač', company: 'Nebula Nexus', country: 'SK' },
-  { id: 16, name: 'Nina Patel', company: 'Verdant Innovations', country: 'IN' }
-];
-
 function WorkerListItem({ name, company, country, isSelected, onClick }) {
   return (
     <div 
@@ -55,7 +35,7 @@ WorkerListItem.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
+export default function Sidebar({ workers, onWorkerSelect, selectedWorkerId }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleAddWorker = () => {
@@ -73,7 +53,7 @@ export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
       worker.company.toLowerCase().includes(query) ||
       worker.country.toLowerCase().includes(query)
     );
-  }, [searchQuery]);
+  }, [searchQuery, workers]);
 
   // Show no results message if no workers match the search
   const renderNoResults = () => {
@@ -118,6 +98,7 @@ export default function Sidebar({ onWorkerSelect, selectedWorkerId }) {
 }
 
 Sidebar.propTypes = {
+  workers: PropTypes.array.isRequired,
   onWorkerSelect: PropTypes.func.isRequired,
   selectedWorkerId: PropTypes.number,
 }; 
