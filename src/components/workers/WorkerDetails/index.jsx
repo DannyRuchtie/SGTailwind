@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { PencilIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import WorkerDetailsSection from './WorkerDetailsSection';
 
-export default function WorkerDetails({ worker }) {
+export default function WorkerDetails({ worker, onInfoClick, isExpandedView, isMobile }) {
   if (!worker) {
     return (
       <div className="text-center text-gray-500 mt-8">
@@ -53,10 +53,18 @@ export default function WorkerDetails({ worker }) {
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold text-SG-text-primary">{worker.name}</h1>
-        
           </div>
           <p className="text-sm text-gray-500 mt-1">{worker.company}</p>
         </div>
+        {isMobile && isExpandedView && (
+          <button
+            onClick={onInfoClick}
+            className="flex items-center gap-2 text-sm text-SG-text-primary hover:text-SG-text-muted transition-colors"
+          >
+            <span>View Info</span>
+            <ChevronRightIcon className="h-4 w-4" />
+          </button>
+        )}
       </div>
 
       {/* Sections */}
@@ -81,4 +89,7 @@ WorkerDetails.propTypes = {
     company: PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
   }),
+  onInfoClick: PropTypes.func,
+  isExpandedView: PropTypes.bool,
+  isMobile: PropTypes.bool,
 }; 
