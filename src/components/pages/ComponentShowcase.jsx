@@ -597,6 +597,45 @@ export default function ComponentShowcase() {
         </ComponentWrapper>
       </ComponentSection>
 
+      <ComponentSection title="Typography">
+        <ComponentWrapper title="Semantic & Utility Styles">
+            <div className="w-full space-y-4">
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">h1 / .text-3xl</p>
+                    <h1 className="text-3xl">The quick brown fox jumps over the lazy dog.</h1>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">h2 / .text-2xl</p>
+                    <h2 className="text-2xl">The quick brown fox jumps over the lazy dog.</h2>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">h3 / .text-xl</p>
+                    <h3 className="text-xl">The quick brown fox jumps over the lazy dog.</h3>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">h4 / .text-lg</p>
+                    <h4 className="text-lg">The quick brown fox jumps over the lazy dog.</h4>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">p (body) / .text-base</p>
+                    <p className="text-base">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">a / .text-base</p>
+                    <a href="#" className="text-base text-SG-buttons-cta-primary hover:underline">The quick brown fox jumps over the lazy dog.</a>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">small / .text-sm</p>
+                    <small className="text-sm">The quick brown fox jumps over the lazy dog.</small>
+                </div>
+                <div className="flex flex-col w-full items-start">
+                    <p className="text-xs text-SG-text-muted mb-1">.text-xs</p>
+                    <p className="text-xs">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+            </div>
+        </ComponentWrapper>
+      </ComponentSection>
+
       <ComponentSection title="Icons">
         <ComponentWrapper title="Outline Icons">
             <div className="flex flex-wrap gap-x-6 gap-y-8">
