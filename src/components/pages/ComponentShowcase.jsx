@@ -144,6 +144,16 @@ export default function ComponentShowcase() {
                     <Button variant="danger" size="md">Danger</Button>
                     <Button variant="danger" size="lg">Danger</Button>
                 </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="success" size="sm">Success</Button>
+                    <Button variant="success" size="md">Success</Button>
+                    <Button variant="success" size="lg">Success</Button>
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="warning" size="sm">Warning</Button>
+                    <Button variant="warning" size="md">Warning</Button>
+                    <Button variant="warning" size="lg">Warning</Button>
+                </div>
             </div>
         </ComponentWrapper>
         <ComponentWrapper title="With Icons">

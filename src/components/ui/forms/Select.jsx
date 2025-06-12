@@ -30,7 +30,7 @@ export default function Select({ label, name, options, value, onChange, disabled
           <>
             <Listbox.Label className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</Listbox.Label>
             <div className="relative mt-1">
-              <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary sm:text-sm sm:leading-6 dark:bg-gray-800 dark:text-white dark:ring-gray-600">
+              <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 border border-SG-stroke focus:outline-none focus:ring-2 focus:ring-SG-buttons-cta-primary sm:text-sm sm:leading-6 dark:bg-gray-800 dark:text-white dark:ring-gray-600">
                 <span className="block truncate">{selectedOption ? selectedOption.label : 'Select an option'}</span>
                 <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                   <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -44,7 +44,7 @@ export default function Select({ label, name, options, value, onChange, disabled
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm dark:bg-gray-800">
+                <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base border border-SG-stroke focus:outline-none sm:text-sm dark:bg-gray-800">
                   {options.map((option) => (
                     <Listbox.Option
                       key={option.value}
