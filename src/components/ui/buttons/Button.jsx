@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Children } from 'react';
 
 const sizeClasses = {
   xs: 'px-2 py-1 text-xs',
@@ -8,12 +9,29 @@ const sizeClasses = {
   xl: 'px-3.5 py-2.5 text-sm',
 };
 
+// Padding for icon-only buttons. Should match the vertical padding of the standard buttons.
+const iconOnlySizeClasses = {
+  xs: 'p-1', // Corresponds to py-1
+  sm: 'p-1', // Corresponds to py-1
+  md: 'p-1.5', // Corresponds to py-1.5
+  lg: 'p-2', // Corresponds to py-2
+  xl: 'p-2.5', // Corresponds to py-2.5
+};
+
 const iconSizeClasses = {
   xs: 'size-3.5',
   sm: 'size-4',
   md: 'size-4.5',
   lg: 'size-5',
   xl: 'size-5',
+};
+
+const iconOnlyIconSizeClasses = {
+  xs: 'size-3',
+  sm: 'size-3.5',
+  md: 'size-4',
+  lg: 'size-4.5',
+  xl: 'size-4.5',
 };
 
 const baseClasses = {
@@ -48,11 +66,14 @@ export default function Button({
   className = '',
   ...props
 }) {
+  const isIconOnly = icon && Children.count(children) === 0;
+
   const roundedClass = size === 'xs' || size === 'sm' ? 'rounded-sm' : 'rounded-md';
-  const withIconClass = icon ? 'inline-flex items-center gap-x-1.5' : '';
-  const iconClass = icon ? `${iconSizeClasses[size]} ${iconPosition === 'left' ? '-ml-0.5' : '-mr-0.5'}` : '';
+  const withIconClass = icon ? `inline-flex items-center ${isIconOnly ? 'justify-center' : 'gap-x-1.5'}` : '';
+  const currentIconSize = isIconOnly ? iconOnlyIconSizeClasses[size] : iconSizeClasses[size];
+  const iconClass = icon ? `${currentIconSize} ${!isIconOnly && (iconPosition === 'left' ? '-ml-0.5' : '-mr-0.5')}` : '';
   const disabledClass = disabled ? 'opacity-50 cursor-not-allowed' : '';
-  const sizeClass = variant === 'link' ? '' : sizeClasses[size];
+  const sizeClass = variant === 'link' ? '' : (isIconOnly ? iconOnlySizeClasses[size] : sizeClasses[size]);
 
   return (
     <button
@@ -90,6 +111,6 @@ Button.propTypes = {
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['left', 'right']),
   disabled: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 }; 
