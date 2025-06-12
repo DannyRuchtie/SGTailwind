@@ -1,0 +1,35 @@
+- [x] Badge
+- [x] Alert / Toast
+- [x] Badge
+- [x] Pagination (single link)
+- [x] Breadcrumb
+- [x] Tabs (individual tab)
+- [x] Range slider
+- [x] Select dropdown
+- [x] Textarea
+- [x] Input (text, email, password)
+- [x] Switch / Toggle
+- [x] Radio button
+- [x] Checkbox
+- [x] Progress Bar
+- [x] Badge
+- [x] Avatar
+- [x] Tooltip
+- [x] Spinner / Loader
+- [x] Badge
+- [x] Icons
+- [x] Button
+
+
+- [x] Table (header, rows, pagination)
+- [x] Notification center or toast stack
+- [x] Avatar list/profile block
+- [x] Tabs panel (tab list + content sections)
+- [x] Calendar date picker
+- [x] Alert banner
+- [x] Search bar with filters
+- [x] Sidebar
+- [x] Modal / Dialog
+- [x] Accordion (toggle header + content)
+- [x] Navbar (logo + nav links + search)
+- [x] Dropdown menu

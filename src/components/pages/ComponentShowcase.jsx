@@ -29,7 +29,7 @@ import Pagination from '../ui/navigation/Pagination';
 // Overlays
 import Accordion from '../ui/data-display/Accordion';
 import Dropdown from '../ui/overlays/Dropdown';
-import Modal from '../ui/overlays/Modal';
+import ConfirmationModal from '../ui/overlays/ConfirmationModal';
 import WorkerListItem from '../ui/list/WorkerListItem';
 import ListEmptyState from '../ui/list/ListEmptyState';
 
@@ -40,6 +40,7 @@ import Notification from '../ui/Notification';
 import Tabs from '../navigation/Tabs';
 import { DialogTitle } from '@headlessui/react'
 import { ArrowDownTrayIcon, PlusIcon } from '@heroicons/react/16/solid'
+import MultiColumnLayoutShowcase from '../ui/layout/MultiColumnLayoutShowcase';
 
 
 const ComponentSection = ({ title, children }) => (
@@ -61,7 +62,7 @@ const ComponentWrapper = ({ title, children }) => (
 export default function ComponentShowcase() {
     const [sliderValue, setSliderValue] = useState(50);
     const [toggleEnabled, setToggleEnabled] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalState, setModalState] = useState({ open: false, variant: 'danger' });
     const [checkboxStates, setCheckboxStates] = useState({ terms: false, newsletter: true });
     const [radioValue, setRadioValue] = useState('email');
     const [showNotification, setShowNotification] = useState(false);
@@ -120,6 +121,17 @@ export default function ComponentShowcase() {
   return (
     <div className="col-span-12">
       <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-10">Component Showcase</h1>
+
+
+
+      <ComponentSection title="Layout">
+        <ComponentWrapper title="Multi-Column Grid">
+          <div className="w-full">
+            <MultiColumnLayoutShowcase />
+          </div>
+        </ComponentWrapper>
+      </ComponentSection>
+
       
       <ComponentSection title="Buttons">
         <ComponentWrapper title="Variants & Sizes">
@@ -166,48 +178,7 @@ export default function ComponentShowcase() {
         </ComponentWrapper>
       </ComponentSection>
 
-      <ComponentSection title="Data Display">
-        <ComponentWrapper title="Avatar">
-            <Avatar alt="Anika Calzoni" size="sm" />
-            <Avatar alt="Lincoln Vetrovs" size="md" />
-            <Avatar alt="Justin Ekstrom" size="lg" />
-            <Avatar alt="Ann Rhiel Madsen" size="xl" />
-        </ComponentWrapper>
-        <ComponentWrapper title="Avatar List">
-            <AvatarList avatars={avatarListItems} />
-        </ComponentWrapper>
-        <ComponentWrapper title="Badge">
-            <Badge label="Primary" color="primary" />
-            <Badge label="Gray" color="gray" />
-            <Badge label="Success" color="success" />
-            <Badge label="Warning" color="warning" />
-            <Badge label="Error" color="error" />
-        </ComponentWrapper>
-        <ComponentWrapper title="Progress Bar">
-            <div className="w-full space-y-4">
-                <ProgressBar progress={75} color="primary" />
-                <ProgressBar progress={50} color="success" size="sm" />
-            </div>
-        </ComponentWrapper>
-        <ComponentWrapper title="Spinner">
-            <Spinner size="sm" />
-            <Spinner size="md" color="gray" />
-            <Spinner size="lg" />
-        </ComponentWrapper>
-        <ComponentWrapper title="Tooltip">
-            <Tooltip content="This is a tooltip">
-                <Button>Hover me (top)</Button>
-            </Tooltip>
-             <Tooltip content="This is another tooltip" position="bottom">
-                <Button>Hover me (bottom)</Button>
-            </Tooltip>
-        </ComponentWrapper>
-        <ComponentWrapper title="Table">
-            <div className="w-full">
-                <Table headers={tableHeaders} data={tableData} />
-            </div>
-        </ComponentWrapper>
-      </ComponentSection>
+
 
       <ComponentSection title="Lists">
         <ComponentWrapper title="List Item">
@@ -326,23 +297,66 @@ export default function ComponentShowcase() {
             <Dropdown buttonText="Options" items={dropdownItems} />
         </ComponentWrapper>
          <ComponentWrapper title="Modal">
-            <Button onClick={() => setIsModalOpen(true)}>Open Modal</Button>
-            <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-sm w-full text-left">
-                    <DialogTitle className="text-lg font-medium text-gray-900 dark:text-white">Deactivate account</DialogTitle>
-                    <div className="mt-2">
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                           Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.
-                        </p>
-                    </div>
-                    <div className="mt-4 flex justify-end space-x-2">
-                        <Button variant="secondary" onClick={() => setIsModalOpen(false)}>Cancel</Button>
-                        <Button onClick={() => setIsModalOpen(false)}>Deactivate</Button>
-                    </div>
-                </div>
-            </Modal>
+            <div className="flex gap-4">
+                <Button onClick={() => setModalState({ open: true, variant: 'danger' })}>Danger Modal</Button>
+                 <Button variant="primary" onClick={() => setModalState({ open: true, variant: 'info' })}>Info Modal</Button>
+            </div>
+            <ConfirmationModal
+                open={modalState.open}
+                setOpen={(isOpen) => setModalState({ ...modalState, open: isOpen })}
+                title="Confirm Action"
+                message="Are you sure you want to do this? This action cannot be undone."
+                confirmText="Confirm"
+                onConfirm={() => console.log('Confirmed!')}
+                variant={modalState.variant}
+            />
         </ComponentWrapper>
       </ComponentSection>
+
+
+      <ComponentSection title="Data Display">
+        <ComponentWrapper title="Avatar">
+            <Avatar alt="Anika Calzoni" size="sm" />
+            <Avatar alt="Lincoln Vetrovs" size="md" />
+            <Avatar alt="Justin Ekstrom" size="lg" />
+            <Avatar alt="Ann Rhiel Madsen" size="xl" />
+        </ComponentWrapper>
+        <ComponentWrapper title="Avatar List">
+            <AvatarList avatars={avatarListItems} />
+        </ComponentWrapper>
+        <ComponentWrapper title="Badge">
+            <Badge label="Primary" color="primary" />
+            <Badge label="Gray" color="gray" />
+            <Badge label="Success" color="success" />
+            <Badge label="Warning" color="warning" />
+            <Badge label="Error" color="error" />
+        </ComponentWrapper>
+        <ComponentWrapper title="Progress Bar">
+            <div className="w-full space-y-4">
+                <ProgressBar progress={75} color="primary" />
+                <ProgressBar progress={50} color="success" size="sm" />
+            </div>
+        </ComponentWrapper>
+        <ComponentWrapper title="Spinner">
+            <Spinner size="sm" />
+            <Spinner size="md" color="gray" />
+            <Spinner size="lg" />
+        </ComponentWrapper>
+        <ComponentWrapper title="Tooltip">
+            <Tooltip content="This is a tooltip">
+                <Button>Hover me (top)</Button>
+            </Tooltip>
+             <Tooltip content="This is another tooltip" position="bottom">
+                <Button>Hover me (bottom)</Button>
+            </Tooltip>
+        </ComponentWrapper>
+        <ComponentWrapper title="Table">
+            <div className="w-full">
+                <Table headers={tableHeaders} data={tableData} />
+            </div>
+        </ComponentWrapper>
+      </ComponentSection>
+
     </div>
   );
 } 
