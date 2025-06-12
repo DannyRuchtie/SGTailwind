@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import CollapsiblePanel from '../../ui/data-display/CollapsiblePanel';
+import Accordion from '../../ui/data-display/Accordion';
 import LabelValue from '../../ui/data-display/LabelValue';
 
 export default function WorkerDetailsSection({ 
@@ -9,7 +9,7 @@ export default function WorkerDetailsSection({
   className = ''
 }) {
   return (
-    <CollapsiblePanel 
+    <Accordion 
       title={title}
       defaultExpanded={defaultExpanded}
       className={className}
@@ -24,7 +24,7 @@ export default function WorkerDetailsSection({
           />
         ))}
       </div>
-    </CollapsiblePanel>
+    </Accordion>
   );
 }
 

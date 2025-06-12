@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { PencilIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import WorkerDetailsSection from './WorkerDetailsSection';
 
 export default function WorkerDetails({ worker, onInfoClick, isExpandedView, isMobile }) {

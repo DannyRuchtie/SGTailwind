@@ -40,10 +40,13 @@
 
   /* State Colors */
   --color-SG-state-success: #2f7f54;
+  --color-SG-state-success-hover: #296e4a;
   --color-SG-state-success-bg: #e4fff7;
   --color-SG-state-error: #f65c5e;
+  --color-SG-state-error-hover: #e04f52;
   --color-SG-state-error-bg: #ffe4e5;
   --color-SG-state-warning: #ffb545;
+  --color-SG-state-warning-hover: #f0a83a;
   --color-SG-state-warning-bg: #fff0c8;
 
   /* Background Colors */
@@ -94,10 +97,13 @@
 
   /* State Colors */
   --color-SG-state-success: #00cc88;
+  --color-SG-state-success-hover: #00b377;
   --color-SG-state-success-bg: #002b1c;
   --color-SG-state-error: #ff4d4d;
+  --color-SG-state-error-hover: #ff3333;
   --color-SG-state-error-bg: #330000;
   --color-SG-state-warning: #ffcc00;
+  --color-SG-state-warning-hover: #e6b800;
   --color-SG-state-warning-bg: #332600;
 
   /* Background Colors */

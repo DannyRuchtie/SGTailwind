@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Layout from './components/layout/Layout';
 import Dashboard from './components/pages/Dashboard';
 import Workforce from './components/pages/Workforce';
+import ComponentShowcase from './components/pages/ComponentShowcase';
 import { ThemeProvider } from './context/ThemeContext';
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route index element={<Navigate to="/workforce" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="components" element={<ComponentShowcase />} />
             <Route path="workforce" element={<Workforce view="standard" />} />
             <Route path="workforce/:workerId" element={<Workforce view="standard" />} />
             <Route path="workforce/focus" element={<Workforce view="focus" />} />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Notification from '../ui/Notification';
-import Modal from '../ui/Modal';
-import Button from '../ui/Button';
+import ConfirmationModal from '../ui/overlays/ConfirmationModal';
+import Button from '../ui/buttons/Button';
 import { InformationCircleIcon } from '@heroicons/react/20/solid';
 
 export default function InfoPanel() {
@@ -16,7 +16,7 @@ export default function InfoPanel() {
   return (
     <aside className="bg-SG-bg-content p-4 h-full rounded-lg flex-col max-h-[calc(100vh-11rem)] min-h-[calc(100vh-11rem)]">
       <h3 className="text-lg font-semibold text-SG-text-primary mb-3">Trigger Actions</h3>
-      <p className="text-sm text-SG-text-muted mb-6">Trigger actions to show notifications or modals.</p>
+      <p className="text-sm text-SG-text-muted mb-6">Trigger actions to show notifications or modalsverc.</p>
       
       <div className="space-y-4">
         <div>
@@ -48,7 +48,7 @@ export default function InfoPanel() {
         message="The operation has been completed successfully."
       />
 
-      <Modal
+      <ConfirmationModal
         open={showModal}
         setOpen={setShowModal}
         title="Confirm Action"

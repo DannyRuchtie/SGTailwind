@@ -31,9 +31,9 @@ const variantClasses = {
   primary: 'bg-SG-buttons-cta-primary text-white hover:bg-SG-buttons-cta-hover focus-visible:outline-SG-buttons-cta-primary',
   secondary: 'bg-SG-bg-content text-SG-text-primary ring-1 ring-SG-stroke ring-inset hover:bg-SG-bg-content-secondary',
   tertiary: 'text-SG-text-primary hover:bg-SG-bg-content-secondary',
-  danger: 'bg-red-600 text-white hover:bg-red-500 focus-visible:outline-red-600',
-  success: 'bg-green-600 text-white hover:bg-green-500 focus-visible:outline-green-600',
-  warning: 'bg-yellow-500 text-white hover:bg-yellow-400 focus-visible:outline-yellow-500',
+  danger: 'bg-SG-state-error text-white hover:bg-SG-state-error-hover focus-visible:outline-SG-state-error',
+  success: 'bg-SG-state-success text-white hover:bg-SG-state-success-hover focus-visible:outline-SG-state-success',
+  warning: 'bg-SG-state-warning text-white hover:bg-SG-state-warning-hover focus-visible:outline-SG-state-warning',
   ghost: 'text-SG-text-primary hover:bg-SG-bg-content-secondary',
   link: 'text-SG-buttons-cta-primary hover:text-SG-buttons-cta-hover p-0',
 };

@@ -1,25 +1,24 @@
 import { Fragment } from 'react'
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { 
-  Squares2X2Icon,
-  BeakerIcon,
-} from '@heroicons/react/24/outline'
+import { XMarkIcon, HomeIcon, PuzzlePieceIcon, UsersIcon } from '@heroicons/react/24/outline'
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
 
 const navigation = [
-  { 
-    name: 'Dashboard', 
-    href: '/dashboard', 
-    icon: Squares2X2Icon
+  { name: 'Dashboard', href: '/', icon: HomeIcon },
+  { name: 'Workforce', href: '/workforce', icon: UsersIcon },
+  {
+    name: 'Components',
+    href: '/components',
+    icon: PuzzlePieceIcon,
   },
-  { 
-    name: 'Workforce', 
-    href: '/', 
-    icon: BeakerIcon
-  },
-]
+];
+
+const teams = [
+  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false, icon: PuzzlePieceIcon },
+  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
+  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -31,7 +30,7 @@ export default function SlideOverPanel({ open, setOpen }) {
   // Function to check if a nav item is current
   const isCurrentRoute = (href) => {
     if (href === '/') {
-      return location.pathname === '/' || ['/focus', '/expanded'].includes(location.pathname);
+      return location.pathname === '/workforce' || ['/workforce/focus', '/workforce/expanded'].some(p => location.pathname.startsWith(p));
     }
     return location.pathname === href;
   };

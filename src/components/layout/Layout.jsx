@@ -37,18 +37,20 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-SG-bg-base100 dark:bg-SG-bg-base900 transition-colors duration-200">
-      <Navbar 
-        setIsSlideOverOpen={setIsSlideOverOpen} 
-        setIsNotificationPanelOpen={setIsNotificationPanelOpen}
-      />
-      
-      {isWorkforcePage && (
-        <Tabs 
-          tabs={TABS_CONFIG} 
-          activeTab={activeTab} 
-          setActiveTab={handleTabChange}
+      <header className="sticky top-0 z-40">
+        <Navbar 
+          setIsSlideOverOpen={setIsSlideOverOpen} 
+          setIsNotificationPanelOpen={setIsNotificationPanelOpen}
         />
-      )}
+        
+        {isWorkforcePage && (
+          <Tabs 
+            tabs={TABS_CONFIG} 
+            activeTab={activeTab} 
+            setActiveTab={handleTabChange}
+          />
+        )}
+      </header>
       
       <SlideOverPanel open={isSlideOverOpen} setOpen={setIsSlideOverOpen} />
       <NotificationPanel isOpen={isNotificationPanelOpen} setIsOpen={setIsNotificationPanelOpen} />

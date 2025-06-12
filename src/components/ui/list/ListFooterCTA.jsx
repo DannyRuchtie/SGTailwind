@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Button from '../Button';
+import Button from '../buttons/Button';
 
 export default function ListFooterCTA({ icon: Icon, label, onClick }) {
   return (

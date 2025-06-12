@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
-export default function CollapsiblePanel({ 
+export default function Accordion({ 
   title, 
   children,
   defaultExpanded = true,
@@ -33,7 +33,7 @@ export default function CollapsiblePanel({
   );
 }
 
-CollapsiblePanel.propTypes = {
+Accordion.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   defaultExpanded: PropTypes.bool,
