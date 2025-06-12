@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 
-export default function Pagination({ currentPage, totalPages, onPageChange }) {
+export default function Pagination({ currentPage, totalPages, onPageChange, showNumbers = false }) {
     
   const handlePrevious = () => {
     if (currentPage > 1) {
@@ -14,6 +14,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       onPageChange(currentPage + 1);
     }
   };
+
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <div className="flex items-center justify-between rounded-lg bg-white px-4 py-3 dark:bg-gray-800 sm:px-6">
@@ -35,7 +37,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm text-gray-700 dark:text-gray-300 space-x-2 pr-2">
+           <p className="text-sm text-gray-700 dark:text-gray-300">
             Page <span className="font-medium">{currentPage}</span> of{' '}
             <span className="font-medium">{totalPages}</span>
           </p>
@@ -50,7 +52,20 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </button>
-            {/* Current page indicator can be added here in a more complex component */}
+            {showNumbers && pageNumbers.map((number) => (
+              <button
+                key={number}
+                onClick={() => onPageChange(number)}
+                aria-current={currentPage === number ? 'page' : undefined}
+                className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
+                  currentPage === number
+                    ? 'z-10 bg-SG-buttons-cta-primary text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-SG-buttons-cta-primary'
+                    : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 dark:text-gray-200 dark:ring-gray-600 dark:hover:bg-gray-700'
+                }`}
+              >
+                {number}
+              </button>
+            ))}
             <button
               onClick={handleNext}
               disabled={currentPage === totalPages}
@@ -70,4 +85,5 @@ Pagination.propTypes = {
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
     onPageChange: PropTypes.func.isRequired,
+    showNumbers: PropTypes.bool,
 }; 

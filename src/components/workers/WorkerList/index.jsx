@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import SearchInput from '../../ui/search/SearchInput';
+import SearchInput from '../../ui/SearchInput';
 import List from '../../ui/list/List';
 import ListItem from '../../ui/list/ListItem';
 import ListFooterCTA from '../../ui/list/ListFooterCTA';
@@ -49,25 +49,25 @@ export default function WorkerList({ onWorkerSelect, selectedWorkerId }) {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-SG-bg-content">
       <div className="px-6 py-4 border-b border-SG-stroke">
         <SearchInput 
           placeholder="Search worker..." 
         />
       </div>
       
-      <div className="overflow-y-auto" style={{ height: 'calc(100vh - 13rem)' }}>
-        {workers.map((worker) => renderWorkerItem(worker))}
-      </div>
-
-      <div className="border-t border-SG-stroke bg-SG-bg-content">
-        <ListFooterCTA
-          icon={<PlusIcon />}
-          label="Add Worker"
-          onClick={handleAddWorker}
-          className="border-t-0"
+      <div className="flex-1 overflow-y-auto">
+        <List 
+          items={workers}
+          renderItem={renderWorkerItem}
         />
       </div>
+
+      <ListFooterCTA
+        icon={<PlusIcon />}
+        label="Add Worker"
+        onClick={handleAddWorker}
+      />
     </div>
   );
 }

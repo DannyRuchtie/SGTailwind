@@ -93,7 +93,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
               <div className="flex h-16 justify-between">
                 <div className="flex">
                   <div className="flex items-center mr-4">
-                    <button
+                      <button
                       type="button"
                       onClick={() => {
                         if (typeof setIsSlideOverOpen === 'function') {
@@ -103,7 +103,7 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
                         }
                       }}
                       className="p-2 rounded-md text-SG-text-muted hover:text-SG-text-primary hover:bg-SG-bg-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-SG-buttons-cta-primary"
-                    >
+                      >
                       <span className="sr-only">Open sidebar</span>
                       <Bars3Icon className="h-6 w-6 text-SG-text-primary" aria-hidden="true" />
                     </button>
@@ -240,4 +240,4 @@ export default function Navbar({ setIsSlideOverOpen, setIsNotificationPanelOpen 
 Navbar.propTypes = {
   setIsSlideOverOpen: PropTypes.func.isRequired,
   setIsNotificationPanelOpen: PropTypes.func.isRequired,
-}; 
+};
