@@ -362,24 +362,73 @@ export default function ComponentShowcase() {
                     <Button variant="danger" size="md">Danger</Button>
                     <Button variant="danger" size="lg">Danger</Button>
                 </div>
-                <div className="flex flex-col gap-4 items-start">
-                    <Button variant="success" size="sm">Success</Button>
-                    <Button variant="success" size="md">Success</Button>
-                    <Button variant="success" size="lg">Success</Button>
-                </div>
-                <div className="flex flex-col gap-4 items-start">
-                    <Button variant="warning" size="sm">Warning</Button>
-                    <Button variant="warning" size="md">Warning</Button>
-                    <Button variant="warning" size="lg">Warning</Button>
-                </div>
             </div>
         </ComponentWrapper>
         <ComponentWrapper title="With Icons">
             <div className="flex items-start gap-4">
-                <Button size="md" icon={<SolidPlusIcon />}>Add</Button>
-                <Button variant="secondary" size="md" icon={<SolidArrowDownTrayIcon />} iconPosition="right">Download</Button>
-                <Button variant="tertiary" size="md" icon={<SolidPlusIcon />}>Add</Button>
-                 <Button variant="secondary" size="lg" icon={<SolidPlusIcon />} aria-label="Add item" />
+                <div className="flex flex-col gap-4 items-start">
+                    <Button size="sm" icon={<SolidPlusIcon />}>Add</Button>
+                    <Button size="md" icon={<SolidPlusIcon />}>Add</Button>
+                    <Button size="lg" icon={<SolidPlusIcon />}>Add</Button>
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="secondary" size="sm" icon={<SolidArrowDownTrayIcon />}>Download</Button>
+                    <Button variant="secondary" size="md" icon={<SolidArrowDownTrayIcon />}>Download</Button>
+                    <Button variant="secondary" size="lg" icon={<SolidArrowDownTrayIcon />}>Download</Button>
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="tertiary" size="sm" icon={<SolidPlusIcon />}>Add</Button>
+                    <Button variant="tertiary" size="md" icon={<SolidPlusIcon />}>Add</Button>
+                    <Button variant="tertiary" size="lg" icon={<SolidPlusIcon />}>Add</Button>
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="danger" size="sm" icon={<TrashIcon />}>Delete</Button>
+                    <Button variant="danger" size="md" icon={<TrashIcon />}>Delete</Button>
+                    <Button variant="danger" size="lg" icon={<TrashIcon />}>Delete</Button>
+                </div>
+            </div>
+        </ComponentWrapper>
+        <ComponentWrapper title="Icons on Right">
+            <div className="flex items-start gap-4">
+                <div className="flex flex-col gap-4 items-start">
+                    <Button size="sm" icon={<ChevronRightIcon />} iconPosition="right">Next</Button>
+                    <Button size="md" icon={<ChevronRightIcon />} iconPosition="right">Next</Button>
+                    <Button size="lg" icon={<ChevronRightIcon />} iconPosition="right">Next</Button>
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="secondary" size="sm" icon={<ArrowDownTrayIcon />} iconPosition="right">Export</Button>
+                    <Button variant="secondary" size="md" icon={<ArrowDownTrayIcon />} iconPosition="right">Export</Button>
+                    <Button variant="secondary" size="lg" icon={<ArrowDownTrayIcon />} iconPosition="right">Export</Button>
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="tertiary" size="sm" icon={<ChevronRightIcon />} iconPosition="right">Continue</Button>
+                    <Button variant="tertiary" size="md" icon={<ChevronRightIcon />} iconPosition="right">Continue</Button>
+                    <Button variant="tertiary" size="lg" icon={<ChevronRightIcon />} iconPosition="right">Continue</Button>
+                </div>
+            </div>
+        </ComponentWrapper>
+        <ComponentWrapper title="Icon Only Buttons">
+            <div className="flex items-start gap-4">
+                <div className="flex flex-col gap-4 items-start">
+                    <Button size="sm" icon={<SolidPlusIcon />} aria-label="Add item" />
+                    <Button size="md" icon={<SolidPlusIcon />} aria-label="Add item" />
+                    <Button size="lg" icon={<SolidPlusIcon />} aria-label="Add item" />
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="secondary" size="sm" icon={<MagnifyingGlassIcon />} aria-label="Search" />
+                    <Button variant="secondary" size="md" icon={<MagnifyingGlassIcon />} aria-label="Search" />
+                    <Button variant="secondary" size="lg" icon={<MagnifyingGlassIcon />} aria-label="Search" />
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="tertiary" size="sm" icon={<CogIcon />} aria-label="Settings" />
+                    <Button variant="tertiary" size="md" icon={<CogIcon />} aria-label="Settings" />
+                    <Button variant="tertiary" size="lg" icon={<CogIcon />} aria-label="Settings" />
+                </div>
+                <div className="flex flex-col gap-4 items-start">
+                    <Button variant="danger" size="sm" icon={<TrashIcon />} aria-label="Delete" />
+                    <Button variant="danger" size="md" icon={<TrashIcon />} aria-label="Delete" />
+                    <Button variant="danger" size="lg" icon={<TrashIcon />} aria-label="Delete" />
+                </div>
             </div>
         </ComponentWrapper>
       </ComponentSection>
